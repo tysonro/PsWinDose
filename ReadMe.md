@@ -21,19 +21,16 @@ Clone this repo locally and build the module. Once it is built you can either im
 
 ```powershell
 # 1. Build module
-.\build.ps1 -taskList clean, test, build
+.\build.ps1 -taskList clean, test, build, deploy
 
 # 2. Import module
-Import-Module -Path .\BuildOutput\Artifacts\PsWinDose\PsWinDose.psd1
+Import-Module PsWinDose
 
 # 3. Get a list of commands
 Get-Command -Module PsWinDose
 
 # 4. Get help on a command
 Get-Help <commandName>
-
-# Example
-Get-Help Get-FolderSize
 ```
 
 ## Windows Setup

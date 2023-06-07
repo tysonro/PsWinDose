@@ -45,3 +45,22 @@ One of the primary purposes of this module is to automate app installations, con
 - Install PowerShell Modules
 - Install Software
 - Install custom PowerShell profile.ps1
+
+## PowerShell Profile Management
+
+A few functions to help manage my profile:
+
+```powershell
+Install-PSProfile
+```
+
+## PowerShell Themes
+
+To help manage oh-my-posh themes, here are some helpful functions:
+
+```powershell
+Get-PoshTheme
+
+# Great way to experiment and try new ones out. To permanently set it though, you need to update the theme in the profile.ps1 file.
+Set-PoshTheme
+```

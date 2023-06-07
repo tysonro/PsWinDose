@@ -44,15 +44,15 @@ Set-Alias -Name rdp -Value Enter-PSSession
 #Set-PSReadlineOption -EditMode vi -BellStyle None
 
 # Set oh-my-posh theme
-oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/night-owl.omp.json" | Invoke-Expression
+oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/powerlevel10k_rainbow.omp.json" | Invoke-Expression
 
 <# Setup PSReadLine
 if ($host.Name -eq 'ConsoleHost' -or $host.Name -eq 'Visual Studio Code Host' ) {
-    # not sure if I'll need this but just keeping it here fr now
+    # not sure if I'll need this but just keeping it here for now
 }#>
 
 Set-PSReadLineOption -EditMode Windows
-Set-PSReadLineOption -PredictionViewStyle ListView #Inline (default)
+Set-PSReadLineOption -PredictionViewStyle InLine # ListView | Inline (default) (Note: F2 toggles in real time!)
 Set-PSReadlineOption -Color @{
     "Command" = [ConsoleColor]::Green
     "Parameter" = [ConsoleColor]::Gray
@@ -320,8 +320,8 @@ $Quotes = @(
     "Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live. - John Woods"
     "Any fool can write code that a computer can understand. Good programmers write code that humans can understand. - Martin Fowler"
     "Wealthy people work to learn. Poor people work for money."
-    "Seek first to understand, then to be understood. — Stephen Covey"
-    "Insanity is doing the same thing over and over again and expecting different results. — Albert Einstein"
+    "Seek first to understand, then to be understood. - Stephen Covey"
+    "Insanity is doing the same thing over and over again and expecting different results. - Albert Einstein"
     "The measure of intelligence is the ability to change. - Albert Einstein"
     "Programmers Mantra: SSoT (single source of truth) and DRY (dont repeat yourself)"
     "Burnout is caused by a lack of progress"

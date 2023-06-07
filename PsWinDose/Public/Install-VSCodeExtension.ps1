@@ -21,6 +21,7 @@ Install-VSCodeExtension
         'ms-azuretools.vscode-azurefunctions'
         'redhat.vscode-yaml'
         'eamodio.gitlens'
+        'ms-azuretools.vscode-bicep'
     )
 
     foreach ($extension in $extensions) {

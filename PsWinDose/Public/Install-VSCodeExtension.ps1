@@ -15,11 +15,12 @@ Install-VSCodeExtension
         'ms-vscode.powershell'
         'github.copilot'
         'dendron.dendron'
-        'redhat.vscode-yaml'
         'dendron.dendron-markdown-shortcuts'
         'vscode-icons-team.vscode-icons'
         'tylerleonhardt.vscode-inline-values-powershell' # Inline debugging info!
         'ms-azuretools.vscode-azurefunctions'
+        'redhat.vscode-yaml'
+        'eamodio.gitlens'
     )
 
     foreach ($extension in $extensions) {

@@ -15,6 +15,9 @@ Install-PSModule
     # Modules to install
     $Modules = @(
         'Az.Accounts'
+        'Az.Resources'
+        'Az.Storage'
+        'Az.KeyVault'
         'ExchangeOnlineManagement'
         'posh-git'
         'terminal-icons'

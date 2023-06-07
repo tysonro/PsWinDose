@@ -19,6 +19,7 @@ Install-VSCodeExtension
         'dendron.dendron-markdown-shortcuts'
         'vscode-icons-team.vscode-icons'
         'tylerleonhardt.vscode-inline-values-powershell' # Inline debugging info!
+        'ms-azuretools.vscode-azurefunctions'
     )
 
     foreach ($extension in $extensions) {

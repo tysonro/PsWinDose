@@ -19,6 +19,7 @@ Install-PSModule
         'posh-git'
         'terminal-icons'
         'PSKoans' # Will Install Pester as a dependency!
+        'PSEverything' # Requires 'Everything' app installed which is handled in the Install-Software script
     )
 
     # Install PowerShell Modules

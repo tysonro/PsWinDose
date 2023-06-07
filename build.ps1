@@ -72,13 +72,6 @@ else {
 # Init BuildHelpers (Normalizes build system into envioronment variables with 'BuildHelpers' module)
 Set-BuildEnvironment -Force
 
-# Install powershell-yaml if running build locally (needed to read azure-pipelines.yml)
-if ($env:BHBuildSystem -eq 'Unknown') {
-    if (!(Get-Module powershell-yaml -ListAvailable)) {
-        Install-Module powershell-yaml -Scope CurrentUser -Force
-    }
-}
-
 # Invoke Psake build tasks
 $PsakeParms = @{
     BuildFile = (Join-Path -Path $env:BHProjectPath -ChildPath 'Build\build.psake.ps1')

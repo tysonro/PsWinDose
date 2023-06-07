@@ -12,7 +12,7 @@
 RootModule = 'PsWinDose.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.2.1'
+ModuleVersion = '1.2.2'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -69,7 +69,7 @@ Description = 'A heavy dose of common Windows tasks, configurations, and adminis
 # NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = @('Add-VsCodeRightClick','Get-ElevationStatus','Get-FileOwner','Get-FolderSize','Get-MsAppBuildVersion','Get-PoshTheme','Get-PSProfile','Get-SystemInfo','Get-SystemUptime','Get-WinBuildVersion','Install-BDSoftware','Install-PSModule','Install-PSPackageProvider','Install-PSProfile','Install-Software','Install-VSCodeExtension','Remove-Software','Set-CustomTerminal','Set-PoshTheme','Start-WindowsSetup')
+FunctionsToExport = @('Add-VsCodeRightClick','Get-ElevationStatus','Get-FileOwner','Get-FolderSize','Get-MsAppBuildVersion','Get-PoshTheme','Get-PSProfile','Get-SystemInfo','Get-SystemUptime','Get-WinBuildVersion','Install-BDSoftware','Install-PSModule','Install-PSPackageProvider','Install-PSProfile','Install-Software','Install-VSCodeExtension','New-BootableUSB','Remove-Software','Set-CustomTerminal','Set-PoshTheme','Start-WindowsSetup')
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

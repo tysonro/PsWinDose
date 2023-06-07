@@ -12,7 +12,7 @@
 RootModule = 'PsWinDose.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.2.5'
+ModuleVersion = '1.2.6'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -30,7 +30,7 @@ CompanyName = '$hellSeeker'
 Copyright = '(c) $hellSeeker. All rights reserved.'
 
 # Description of the functionality provided by this module
-Description = 'A heavy dose of common Windows tasks, configurations, and administration functions.'
+Description = 'A heavy Dose of automation for common windows tasks, configurations, and administration.'
 
 # Minimum version of the PowerShell engine required by this module
 # PowerShellVersion = ''

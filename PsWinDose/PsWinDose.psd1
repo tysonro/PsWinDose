@@ -12,7 +12,7 @@
 RootModule = 'PsWinDose.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.2.6'
+ModuleVersion = '1.3.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -30,7 +30,7 @@ CompanyName = '$hellSeeker'
 Copyright = '(c) $hellSeeker. All rights reserved.'
 
 # Description of the functionality provided by this module
-Description = 'A heavy Dose of automation for common windows tasks, configurations, and administration.'
+Description = 'A heavy dose of automation for common windows tasks, configurations, and administration.'
 
 # Minimum version of the PowerShell engine required by this module
 # PowerShellVersion = ''
@@ -69,7 +69,7 @@ Description = 'A heavy Dose of automation for common windows tasks, configuratio
 # NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = @('Add-VsCodeRightClick','Get-ElevationStatus','Get-FileOwner','Get-FolderSize','Get-MsAppBuildVersion','Get-PoshTheme','Get-PSProfile','Get-SystemInfo','Get-SystemUptime','Get-WinBuildVersion','Install-BDSoftware','Install-PSModule','Install-PSPackageProvider','Install-PSProfile','Install-Software','Install-VSCodeExtension','New-BootableUSB','Remove-Software','Set-CustomTerminal','Set-PoshTheme','Start-WindowsSetup')
+FunctionsToExport = @('Add-VsCodeRightClick','Get-CheatSheetCmd','Get-CheatSheetIpv4','Get-CheatSheetIpv6','Get-CheatSheetRegEx','Get-CmdletAlias','Get-ElevationStatus','Get-FileOwner','Get-FolderSize','Get-MsAppBuildVersion','Get-PoshTheme','Get-PSProfile','Get-SystemInfo','Get-SystemUptime','Get-WinBuildVersion','Get-WindowsProductKey','Install-BDSoftware','Install-PSModule','Install-PSPackageProvider','Install-PSProfile','Install-Software','Install-VSCodeExtension','New-BootableUSB','Remove-Software','Set-CustomTerminal','Set-PoshTheme','Start-WindowsSetup')
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()
@@ -78,7 +78,7 @@ CmdletsToExport = @()
 VariablesToExport = @()
 
 # Aliases to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no aliases to export.
-AliasesToExport = @('gsup','gsi')
+AliasesToExport = @('gsup','gsi','cheat-cmd','cheat-ipv4','cheat-ipv6','cheat-regex')
 
 # DSC resources to export from this module
 # DscResourcesToExport = @()

@@ -198,6 +198,7 @@ VSCode:
 # Terminal
     - Ctrl+J = Hide/Show Terminal
     - Ctrl+` = Open new Terminal
+    - F1 = Pop into Help file
 
 # Explorer
     - Ctrl+B = Hide/Show Explorer
@@ -220,6 +221,19 @@ Terminal:
     - F2
 "
 
+############
+# LEARNING #
+############
+
+# Learn something today (show a random cmdlet help and "about" article
+#If  ($IsWindows -eq $true) {
+#Get-Command -Module Microsoft*, Cim*, PS*, ISE | Get-Random | Get-Help -ShowWindow
+#Get-Random -input (Get-Help about*) | Get-Help -ShowWindow
+#}
+
+# Koans
+#Write-Host "`nMeasure-Karma?" -ForegroundColor Yellow
+
 
 ##########
 # QUOTES #
@@ -235,6 +249,7 @@ $Quotes = @(
     "Music is the silence between the notes - Claude Debussy"
 
     # General
+    "wu wei: the principal of not forcing in anything we do. - go with the flow."
     "Same shit different shovel."
     "Don't practice until you get it right. Practice until you can't get it wrong."
     "There is nothing permanent except change. - Heraclitus"
@@ -332,6 +347,3 @@ $Quotes = @(
 )
 Get-Random $Quotes | Write-Host -ForegroundColor Cyan
 Write-Output "`n"
-
-# Koans
-#Write-Host "`nMeasure-Karma?" -ForegroundColor Yellow

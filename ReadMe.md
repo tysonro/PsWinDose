@@ -13,18 +13,18 @@ A heavy dose of:
 
 Pretty much a collection of common tools I can use to automate my Windows experience.
 
-*NOTE: This project is intented for my own personal use, however if you find it helpful, feel free to use or fork this repo.*
+*NOTE: This project is intented for my own personal use, however if you find it helpful, feel free to use or fork this repo. It mostly works ;) Use at your own risk!*
 
 ## Getting Started
 
-Clone this repo locally and build the module. Once it is built you can either import it from the ```BuildOutput\Artifacts``` folder or copy it to a module location.
+Clone this repo locally and build the module. Once it is built, there is a `Install-PsWinDose.ps1` script that will copy the module to the appropriate locations for PowerShell 5.1 and/or 7.x.
 
 ```powershell
 # 1. Build module
-.\build.ps1 -taskList clean, test, build, deploy
+.\build.ps1 -taskList clean, test, build
 
-# 2. Import module
-Import-Module PsWinDose
+# 2. Copy module to PowerShell 5.1 and/or 7.x locations
+.\Install-PsWinDose.ps1
 
 # 3. Get a list of commands
 Get-Command -Module PsWinDose

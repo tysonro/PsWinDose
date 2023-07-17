@@ -1,2 +1,5 @@
 # Build directory
 /BuildOutput/*
+*.zip
+*.ttf
+LICENSE

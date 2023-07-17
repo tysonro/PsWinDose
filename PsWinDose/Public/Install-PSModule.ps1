@@ -4,7 +4,13 @@ function Install-PSModule {
 Installs PowerShell modules
 
 .DESCRIPTION
-Installs all my favorite PowerShell modules
+Installs all my favorite PowerShell modules:
+
+- posh-git
+- terminal-icons
+- az.accounts
+- exchangeOnlineManagement
+- etc.
 
 .EXAMPLE
 Install-PSModule
@@ -23,6 +29,8 @@ Install-PSModule
         'terminal-icons'
         'PSKoans' # Will Install Pester as a dependency!
         'PSEverything' # Requires 'Everything' app installed which is handled in the Install-Software script
+        'PSDevOps' # James Brundage's module to automate git, Az Dev Ops and Github for DevOps tasks
+        'PSFramework' # Fred Weinmann's module that provides tools for other modules and scripts (logging, etc.)
     )
 
     # Install PowerShell Modules

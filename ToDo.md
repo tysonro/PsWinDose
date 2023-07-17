@@ -1,0 +1,23 @@
+﻿# To Do List
+
+1. Improve CI/CD with psframework something other than psake
+2. There should be an artifact created for each build that can be downloaded as a .zip. This makes it easier on a baremetal machine to install the module - no need to clone the repo and build it which in itself requires several dependencies.
+
+The artifact should be published to a location that can be downloaded from a script. This will allow for a 3 liner to install the module.
+
+Plan: Use this 3 liner to download and execute the gist script (Install-PsWinDose.ps1). This will then download the published artifact (successfully built module) and then copy it to the 5.1 and 7.x locations.
+
+- Need to get a CI/CD working to produce the artifact for the gist!
+
+```powershell
+# Raw Gist Url
+$scriptUrl = "https://gist.github.com/tysonro/8e68cbc46917739c85ffa9c54dacd240/raw/Install-PsWinDose.ps1"
+
+# Download the script from the Gist
+$scriptContent = Invoke-WebRequest -Uri $scriptUrl | Select-Object -ExpandProperty Content
+
+# Run Install-PsWinDose.ps1 to install the latest version of this module
+Invoke-Expression -Command $scriptContent
+```
+
+Have this code on the ReadMe.md so it is as easy is going to the github repo and copy/pasting to get going.

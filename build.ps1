@@ -70,7 +70,7 @@ else {
 }
 
 # Init BuildHelpers (Normalizes build system into envioronment variables with 'BuildHelpers' module)
-Set-BuildEnvironment -Force
+Set-BuildEnvironment -GitPath git -Force
 
 # Invoke Psake build tasks
 $PsakeParms = @{

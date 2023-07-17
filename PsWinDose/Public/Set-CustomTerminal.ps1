@@ -21,7 +21,12 @@ Import-Module -Name $Repos/ADF/ADF/release-az/azSet.psm1 -Scope Global -Force
         - oh-my-posh, nerdfont, posh-git
 
 .NOTES
+TROUBLESHOOTING:
+# Get version of oh-my-posh
+oh-my-posh version
 
+# Get install location
+Get-Command oh-my-posh
 
 https://ohmyposh.dev/docs/command
 		- CustomTerminal: https://www.youtube.com/watch?v=5-aK2_WwrmM
@@ -35,10 +40,6 @@ https://ohmyposh.dev/docs/command
 
 - Community prompts with oh my posh:
 	- https://gist.github.com/DeadlyBrad42/ab69aedcd9741df3151b
-
-
-
-
 
 Terminal Opacaity:
     - Open settings > open json file
@@ -59,6 +60,12 @@ OR
     "useAcrylic": false,
     "Opacity": 0.65
 },
+
+
+Items left to do:
+
+- Set terminal as the default terminal application (this is done via the terminal settings.json)
+
 
 .EXAMPLE
 Set-CustomTerminal

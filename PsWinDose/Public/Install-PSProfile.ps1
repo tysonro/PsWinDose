@@ -4,7 +4,7 @@ function Install-PSProfile {
 Sets up my PowerShell profile
 
 .DESCRIPTION
-Installs my PowerShell profile.ps1 file to the current user's profile directory. This profile is what will be applied when starting a new PowerShell session.
+Installs my PowerShell profile.ps1 file to the current user's profile directory. This profile is what will be applied when starting a new PowerShell session. This currently works for both 5.1 and 7.x versions of PowerShell.
 
 .EXAMPLE
 Install-PSProfile

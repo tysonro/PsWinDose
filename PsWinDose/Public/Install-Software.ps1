@@ -98,6 +98,8 @@ Winget Docs: https://learn.microsoft.com/en-us/windows/package-manager/winget/
         'Microsoft.AzureStorageExplorer'
         'Microsoft.Azure.FunctionsCoreTools'
         'JanDeDobbeleer.OhMyPosh' #Prompt engine to customize the shell prompt
+        'Grammarly.Grammarly' #Grammarly for Windows
+        'flux.flux' #Flux: adjusts screen brightness based on time of day
     )
 
     foreach ($app in $wgAppList) {

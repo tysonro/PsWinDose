@@ -83,7 +83,7 @@ Winget Docs: https://learn.microsoft.com/en-us/windows/package-manager/winget/
         'Microsoft.PowerShell' #PowerShell 7.x
         'mRemoteNG.mRemoteNG'
         'sysinternals' #SysInternals Suite
-        'Micorosft.PowerToys' #Profile backup: C:\Users\1668\OneDrive - BerryDunn\Documents\PowerToys\Backup
+        'Micorosft.PowerToys' #Profile backup: $env:OneDrive\Documents\PowerToys\Backup
         '7zip.7zip'
         'VideoLAN.VLC'
         'voidtools.Everything' #Powerful local search utility

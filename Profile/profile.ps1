@@ -16,7 +16,7 @@ if ($PSVersionTable.PSVersion -lt [version]'7.2') {
 ############
 
 # Repos:
-New-Variable -Name Repos -Value 'C:\Users\1668\OneDrive - BerryDunn\Scripts' -Scope Global -Force
+New-Variable -Name Repos -Value "C:\Users\$($env:OneDrive)\Scripts" -Scope Global -Force
 $null = New-PSDrive -Name Repos -PSProvider FileSystem -Root $Repos -ErrorAction SilentlyContinue
 
 # BD:
@@ -77,19 +77,9 @@ if ($PSVersionTable.PSVersion -ge [version]'7.0') {
 ################
 # KEY BINDINGS #
 ################
-
-# Build PowerShell Module
-$build = @{
-    Chord = 'ctrl+b'
-    BriefDescription = 'BuildPowerShellModule'
-    LongDescription = 'Build the current directory/powershell module'
-    ScriptBlock = {
-        [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
-        [Microsoft.PowerShell.PSConsoleReadLine]::Insert(".\build.ps1 -taskList clean,test,build,deploy")
-        [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
-    }
-}
-Set-PSReadLineKeyHandler @build
+#Add?
+#- CTRL+H = History to OGV
+#- CTRL+D = $env:USERPROFILE\Documents\WindowsPowerShell
 
 # Test PowerShell Module
 $test = @{
@@ -103,6 +93,19 @@ $test = @{
     }
 }
 Set-PSReadLineKeyHandler @test
+
+# Build PowerShell Module
+$build = @{
+    Chord = 'ctrl+b'
+    BriefDescription = 'BuildPowerShellModule'
+    LongDescription = 'Build the current directory/powershell module'
+    ScriptBlock = {
+        [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
+        [Microsoft.PowerShell.PSConsoleReadLine]::Insert(".\build.ps1 -taskList clean,test,build")
+        [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
+    }
+}
+Set-PSReadLineKeyHandler @build
 
 # Sends command history to Out-GridVeiw
 $history = @{
@@ -159,17 +162,11 @@ Function Get-Weather {
 
 $Tips = "
 Variables:
-`$PROFILE = 'C:\Users\1668\Documents\WindowsPowerShell\profile.ps1'
+`$PROFILE = 'C:\Users\`$(`$env:USERNAME)\Documents\WindowsPowerShell\profile.ps1'
 
 Functions:
 - Get-Weather
 - `${Function:<functionName>} #dumps out function source code
-
-HotKeys:
-- CTRL+H = History to OGV
-- CTRL+D = $env:USERPROFILE\Documents\WindowsPowerShell
-- CTRL+S = \\bdmp.com\scripts
-- CTRL+T = 'anakin@berrydunn.com'
 
 InteliSense (posh 7.0 only)
 - F2 brings up a list view!
@@ -188,6 +185,10 @@ Commands:
 VSCode:
 # Command Pallate
 	- Ctrl+Shift+P
+
+# Editing
+    - Ctrl+Shift+[ = Fold
+    - Ctrl+Shift+] = Unfold
 
 # Multi-Line and Cursor edits:
 	- Ctrl+F2 = Multi line edits where its value is duplicated (highlighted)

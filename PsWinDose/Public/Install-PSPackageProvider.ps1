@@ -10,24 +10,30 @@ Checks if provider is present, otherwise installs the following Package Provider
     - Chocolatey
 
 .EXAMPLE
-Install-PackageProviders
+Install-PackageProviders -RepoName 'repo1' -RepoPath '\\server1\Repo1Path'
 #>
     [CmdLetBinding()]
-    Param()
+    Param(
+        $RepoName,
+        $RepoPath,
+        [switch]$AddPrivateRepo
+    )
 
-    # Add BerryDunn repository if not present, typically the case when running as admin
-    if (!(Get-PSRepository -Name 'BerryDunn' -ErrorAction SilentlyContinue)) {
-        $Path = '\\bdmp.com\scripts\Repository'
-        $Repo = @{
-            Name = 'BerryDunn'
-            SourceLocation = $Path
-            PublishLocation = $Path
-            InstallationPolicy = 'Trusted'
+    if ($AddPrivateRepo) {
+        # Add private repository
+        if (!(Get-PSRepository -Name $RepoName -ErrorAction SilentlyContinue)) {
+            $Repo = @{
+                Name = $RepoName
+                SourceLocation = $RepoPath
+                PublishLocation = $RepoPath
+                InstallationPolicy = 'Trusted'
+            }
+            Write-Host "`nRegistering $RepoName repository..."
+            Register-PSRepository @Repo
         }
-        Write-Host "`nRegistering BerryDunn repository..."
-        Register-PSRepository @Repo
-    }   
-    
+        Write-Host "`n$RepoName is already registered"
+    }
+
     # Get list of current package providers
     Write-Host "`nChecking available package providers..." -ForegroundColor Cyan
     $Providers = Get-PackageProvider -ListAvailable

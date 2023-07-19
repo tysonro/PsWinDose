@@ -97,10 +97,10 @@ Task 'Build' -Depends 'Init' {
 }
 
 # Build module artifact
-Task 'Deploy' -Depends 'Init' {
-    # Deploy artifact
-    $userModulePath = $env:psmodulePath.split(';')[0]
-    Write-Output "Deploying build artifacts to: $userModulePath"
-    Copy-Item -Path $env:ArtifactPath -Destination $UserModulePath -Recurse -Force
-    Write-Output "`nFINISHED: Deploying build artifacts."
-}
+#Task 'Deploy' -Depends 'Init' {
+#    # Deploy artifact
+#    $userModulePath = $env:psmodulePath.split(';')[0]
+#    Write-Output "Deploying build artifacts to: $userModulePath"
+#    Copy-Item -Path $env:ArtifactPath -Destination $UserModulePath -Recurse -Force
+#    Write-Output "`nFINISHED: Deploying build artifacts."
+#}

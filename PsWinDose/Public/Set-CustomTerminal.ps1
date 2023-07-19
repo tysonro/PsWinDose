@@ -135,7 +135,7 @@ Windows Terminal Tips and Tricks: https://learn.microsoft.com/en-us/windows/term
 
 # https://ohmyposh.dev/docs/installation/fonts
 #NOTE: (tyson):: For VSCODE font, do this:
-#path: C:\Users\1668\AppData\Roaming\Code\User\settings.json
+#path: $env:AppData\Code\User\settings.json
 # update font (in settings.json) - settings > Font > open json:
 #"editor.fontFamily": "CaskaydiaCove Nerd Font Mono, Consolas, 'Courier New', monospace",
 #"editor.fontLigatures": true

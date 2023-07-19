@@ -14,6 +14,7 @@ Install-VSCodeExtension
     $extensions = @(
         'ms-vscode.powershell'
         'github.copilot'
+        'github.copilot-chat'
         'dendron.dendron'
         'dendron.dendron-markdown-shortcuts'
         'vscode-icons-team.vscode-icons'

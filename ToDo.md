@@ -21,3 +21,9 @@ Invoke-Expression -Command $scriptContent
 ```
 
 Have this code on the ReadMe.md so it is as easy is going to the github repo and copy/pasting to get going.
+
+## Ideas
+
+- A script that creates a scheduled task and is triggered by a log on event. Checks if the specified wifi network is available (provided by parameer) and if it is, it will attempt to connect.
+This way, whenever I come into the office it automatically connects. (Our GPO does not allow auto connect to wifi networks). (alternatively - a batch file created on the fly and dropped in 
+the startup folder that does the same thing - Not sure which would be better)

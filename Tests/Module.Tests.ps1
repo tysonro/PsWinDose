@@ -6,7 +6,7 @@
     Unit tests for a PowerShell module:
         - Valid folder structure
         - Valid code
-        - Aheres to BerryDunn standards
+        - Aheres to community standards
         - Valid module
 #>
 

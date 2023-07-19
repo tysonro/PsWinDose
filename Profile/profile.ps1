@@ -348,6 +348,7 @@ $Quotes = @(
     "The best software design is simple and easy to understand."
     "Understanding that no system is without errors is critical to building resilient systems. - Heidi Waterhouse"
     "AI will not replace you. A person using AI will!"
+    "To ship is to choose! - Jeffrey Snover"
 )
 Get-Random $Quotes | Write-Host -ForegroundColor Cyan
 Write-Output "`n"

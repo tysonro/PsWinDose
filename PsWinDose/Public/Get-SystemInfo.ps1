@@ -56,4 +56,4 @@ Get-SystemInfo
     }
     return $obj
 }
-New-Alias gsi Get-SystemInfo
+New-Alias get-si Get-SystemInfo

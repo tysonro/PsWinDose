@@ -21,4 +21,5 @@ $modulePath = $env:psModulePath.split(';')[0]
 Write-Verbose "$modulePath"
 
 # Copy the module folder to the default module path
+Write-Output "Copying module to $modulePath"
 Copy-Item -Path $buildArtifactPath -Destination $modulePath -Recurse -Force

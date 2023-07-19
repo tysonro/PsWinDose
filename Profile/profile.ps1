@@ -35,6 +35,9 @@ $null = New-PSDrive -Name TRO -PSProvider FileSystem -Root $tro -ErrorAction Sil
 # rdp alias
 Set-Alias -Name rdp -Value Enter-PSSession
 
+# notepadd++
+Set-Alias -Name n+ -Value "C:\Program Files\Notepad++\notepad++.exe"
+
 
 #######################
 # CUSTOMIZE THE SHELL #
@@ -180,7 +183,7 @@ Aliases:
 
 Commands:
 - tree /f
-- start notepadd++ .\<file.txt>
+- n+ .\<file.txt>  ##opens file in notepad++ in current directory
 
 VSCode:
 # Command Pallate

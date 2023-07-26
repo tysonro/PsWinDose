@@ -31,6 +31,7 @@ Install-PSModule
         'PSEverything' # Requires 'Everything' app installed which is handled in the Install-Software script
         'PSDevOps' # James Brundage's module to automate git, Az Dev Ops and Github for DevOps tasks
         'PSFramework' # Fred Weinmann's module that provides tools for other modules and scripts (logging, etc.)
+        'Az.Tools.Predictor' # Provides predictive intellisense for Az modules (requires PS 7.2+)
     )
 
     # Install PowerShell Modules

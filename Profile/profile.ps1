@@ -72,6 +72,9 @@ Set-PSReadlineOption -Color @{
 if ($PSVersionTable.PSVersion -ge [version]'7.0') {
     # PowerShell 7.x and later configurations
     Set-PSReadLineOption -PredictionSource HistoryAndPlugin
+
+    # Enable Az Predictor Plugin
+    Import-Module Az.Tools.Predictor
 } else {
     # PowerShell 5.1 configurations
     Set-PSReadLineOption -PredictionSource History

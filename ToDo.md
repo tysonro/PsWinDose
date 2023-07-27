@@ -1,7 +1,7 @@
 ﻿# To Do List
 
 1. Improve CI/CD with psframework something other than psake
-2. There should be an artifact created for each build that can be downloaded as a .zip. This makes it easier on a baremetal machine to install the module - no need to clone the repo and build it which in itself requires several dependencies.
+2. There should be an artifact created for each build that can be downloaded as a .zip. This makes it easier on a baremetal machine to install the module - no need to clone the repo and build it which in itself requires several dependencies. Just download the .zip, extract and run Install-PsWinDose.ps1.
 
 The artifact should be published to a location that can be downloaded from a script. This will allow for a 3 liner to install the module.
 

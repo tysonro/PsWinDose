@@ -16,7 +16,7 @@ if ($PSVersionTable.PSVersion -lt [version]'7.2') {
 ############
 
 # Repos:
-New-Variable -Name Repos -Value "C:\Users\$($env:OneDrive)\Scripts" -Scope Global -Force
+New-Variable -Name Repos -Value "$($env:OneDrive)\Scripts" -Scope Global -Force
 $null = New-PSDrive -Name Repos -PSProvider FileSystem -Root $Repos -ErrorAction SilentlyContinue
 
 # BD:

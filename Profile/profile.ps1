@@ -327,6 +327,7 @@ $Quotes = @(
     "Simple is not easy"
 	"Short-term results come from intensity but long-term results come from consistency"
     "If you are depressed you are living in the past. If you are anxious, you are living in the future. If you are at peace you are living in the present. - Lao Tzu"
+    "Cynicism masquerades as wisdom, but it is the furthest thing from it. - Stephen Colbert"
 
     # IT: Coding/DevOps/etc.
     "Automation applied to an efficient operation will magnify the efficiency. Automation applied to an inefficient operation will magnify the inefficiency. - Bill Gates"

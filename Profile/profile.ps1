@@ -1,4 +1,4 @@
-# v4.0.0
+# v4.0.1
 
 ###########
 # Modules #
@@ -192,16 +192,16 @@ Commands:
 
 VSCode:
 # Command Pallate
-	- Ctrl+Shift+P
+    - Ctrl+Shift+P
 
 # Editing
     - Ctrl+Shift+[ = Fold
     - Ctrl+Shift+] = Unfold
 
 # Multi-Line and Cursor edits:
-	- Ctrl+F2 = Multi line edits where its value is duplicated (highlighted)
-	- Alt+Click = Multi cursor edits (specific to where you click)
-	- Ctrl + Shift + Alt + Down(Up)Arrow = Cursor Column Select Down or Up for multi line edits
+    - Ctrl+F2 = Multi line edits where its value is duplicated (highlighted)
+    - Alt+Click = Multi cursor edits (specific to where you click)
+    - Ctrl + Shift + Alt + Down(Up)Arrow = Cursor Column Select Down or Up for multi line edits
     - F12 when cursor is on a function to show definition window popup
 
 # Terminal
@@ -213,14 +213,14 @@ VSCode:
     - Ctrl+B = Hide/Show Explorer
 
 # Folding sections
-	- Ctrl+K Ctrl+0 = Fold All
-	- Ctrl+K Ctrl+J = Unfold All
+    - Ctrl+K Ctrl+0 = Fold All
+    - Ctrl+K Ctrl+J = Unfold All
 
 # Split window coding panes
-	- Ctrl+Alt + Left/Right Arrows = Viewing multiple tabs at once
+    - Ctrl+Alt + Left/Right Arrows = Viewing multiple tabs at once
 
 # Add comment based help template to new Function files
-	- ##
+    - ##
 
 Terminal:
 # Quake mode
@@ -323,11 +323,12 @@ $Quotes = @(
     "Experience is the hardest kind of teacher. It gives you the test first and the lesson afterward! - Oscar Wilde"
     "Let come what may."
     "Clear writing gives poor thinking nowhere to hide, making a lack of understanding visible."
-	"Nobody can go back and start a new beginning, but anyone can start today and make a new ending. - Maria Robinson"
+    "Nobody can go back and start a new beginning, but anyone can start today and make a new ending. - Maria Robinson"
     "Simple is not easy"
-	"Short-term results come from intensity but long-term results come from consistency"
+    "Short-term results come from intensity but long-term results come from consistency"
     "If you are depressed you are living in the past. If you are anxious, you are living in the future. If you are at peace you are living in the present. - Lao Tzu"
     "Cynicism masquerades as wisdom, but it is the furthest thing from it. - Stephen Colbert"
+    "Kaizen [ki-zen]: A Japanese term meaning change for the better or continuous improvement"
 
     # IT: Coding/DevOps/etc.
     "Automation applied to an efficient operation will magnify the efficiency. Automation applied to an inefficient operation will magnify the inefficiency. - Bill Gates"

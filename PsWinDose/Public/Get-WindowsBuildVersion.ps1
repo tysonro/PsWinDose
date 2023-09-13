@@ -1,4 +1,4 @@
-﻿function Get-WinBuildVersion {
+﻿function Get-WindowsBuildVersion {
 <#
 .SYNOPSIS
 Get Windows Build Version

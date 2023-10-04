@@ -1,4 +1,4 @@
-# v4.0.1
+# v4.0.2
 
 ###########
 # Modules #
@@ -329,6 +329,11 @@ $Quotes = @(
     "If you are depressed you are living in the past. If you are anxious, you are living in the future. If you are at peace you are living in the present. - Lao Tzu"
     "Cynicism masquerades as wisdom, but it is the furthest thing from it. - Stephen Colbert"
     "Kaizen [ki-zen]: A Japanese term meaning change for the better or continuous improvement"
+    "Stick to the basics: Do your job. Sweat the details. Put the team first. Be attentive. Ignore the noise. Speak for yourself."
+    "Secret to success: Know what to ignore."
+    "The obstacle on the path becomes the way. - Marcus Aurelius"
+    "The best way to predict the future is to create it. - Abraham Lincoln"
+    "The courage to start. The Discipline to finish. The confidence to figure it out. The patience to know progress is not always visible. The persistence to keep going, even on the bad days. That's the formula to winning."
 
     # IT: Coding/DevOps/etc.
     "Automation applied to an efficient operation will magnify the efficiency. Automation applied to an inefficient operation will magnify the inefficiency. - Bill Gates"

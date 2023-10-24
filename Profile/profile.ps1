@@ -1,4 +1,4 @@
-# v4.0.3
+# v4.0.4
 
 ###########
 # Modules #
@@ -125,13 +125,8 @@ $history = @{
 }
 Set-PSReadlineKeyHandler @history
 
-# Capture screen (terminal)
-$captureScreen = @{
-    Chord = 'F12'
-    BriefDescription = 'Capture terminal screen'
-    Description = 'Capture terminal screen; shift up/down arrow to expand selection; enter to save to clipboard'
-}
-Set-PSReadLineKeyHandler @captureScreen
+# Captures terminal screen to clipboard
+Set-PSReadLineKeyHandler -Chord 'F12' -Function 'CaptureScreen'
 
 #############
 # FUNCTIONS #

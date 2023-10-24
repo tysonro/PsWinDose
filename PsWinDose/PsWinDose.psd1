@@ -12,7 +12,7 @@
 RootModule = 'PsWinDose.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.4.7'
+ModuleVersion = '1.4.8'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -69,7 +69,7 @@ Description = 'A heavy dose of automation for common windows tasks, configuratio
 # NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = @('Add-VsCodeRightClick','Get-CheatSheetCmd','Get-CheatSheetIpv4','Get-CheatSheetIpv6','Get-CheatSheetRegEx','Get-CmdletAlias','Get-ElevationStatus','Get-FileOwner','Get-FolderSize','Get-MsAppBuildVersion','Get-PoshTheme','Get-PSProfile','Get-SystemInfo','Get-SystemUptime','Get-WinBuildVersion','Get-WindowsProductKey','Install-PSModule','Install-PSPackageProvider','Install-PSProfile','Install-Software','Install-VSCodeExtension','New-BootableUSB','Remove-Software','Reset-TeamsActivity','Set-CustomTerminal','Set-PoshTheme','Start-WindowsSetup')
+FunctionsToExport = @('Add-VsCodeRightClick','Get-CheatSheetCmd','Get-CheatSheetIpv4','Get-CheatSheetIpv6','Get-CheatSheetRegEx','Get-CheatSheetWin','Get-CmdletAlias','Get-ConnectedDC','Get-ElevationStatus','Get-FileOwner','Get-FolderSize','Get-MsAppBuildVersion','Get-PoshTheme','Get-PSProfile','Get-SystemInfo','Get-SystemUptime','Get-WindowsBuildVersion','Get-WindowsProductKey','Install-PSModule','Install-PSPackageProvider','Install-PSProfile','Install-Software','Install-VSCodeExtension','New-BootableUSB','Remove-Software','Reset-TeamsActivity','Set-CustomTerminal','Set-PoshTheme','Start-WindowsSetup')
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

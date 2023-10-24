@@ -1,4 +1,4 @@
-# v4.0.2
+# v4.0.3
 
 ###########
 # Modules #
@@ -29,7 +29,6 @@ $null = New-PSDrive -Name BD -PSProvider FileSystem -Root $BD -ErrorAction Silen
 New-Variable -Name TRO -Value 'C:\tro' -Scope Global -Force
 $null = New-PSDrive -Name TRO -PSProvider FileSystem -Root $tro -ErrorAction SilentlyContinue
 
-
 ###########
 # ALIASES #
 ###########
@@ -39,7 +38,6 @@ Set-Alias -Name rdp -Value Enter-PSSession
 
 # notepadd++
 Set-Alias -Name n+ -Value "C:\Program Files\Notepad++\notepad++.exe"
-
 
 #######################
 # CUSTOMIZE THE SHELL #
@@ -85,6 +83,7 @@ if ($PSVersionTable.PSVersion -ge [version]'7.0') {
 ################
 # KEY BINDINGS #
 ################
+
 #Add?
 #- CTRL+H = History to OGV
 #- CTRL+D = $env:USERPROFILE\Documents\WindowsPowerShell
@@ -93,7 +92,7 @@ if ($PSVersionTable.PSVersion -ge [version]'7.0') {
 $test = @{
     Chord = 'ctrl+t'
     BriefDescription = 'TestPowerShellModule'
-    LongDescription = 'Test the current directory/powershell module with pester'
+    Description = 'Test the current directory/powershell module with pester'
     ScriptBlock = {
         [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
         [Microsoft.PowerShell.PSConsoleReadLine]::Insert(".\build.ps1 -taskList clean,test")
@@ -106,7 +105,7 @@ Set-PSReadLineKeyHandler @test
 $build = @{
     Chord = 'ctrl+b'
     BriefDescription = 'BuildPowerShellModule'
-    LongDescription = 'Build the current directory/powershell module'
+    Description = 'Build the current directory/powershell module'
     ScriptBlock = {
         [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
         [Microsoft.PowerShell.PSConsoleReadLine]::Insert(".\build.ps1 -taskList clean,test,build")
@@ -119,17 +118,29 @@ Set-PSReadLineKeyHandler @build
 $history = @{
     Chord = 'ctrl+h'
     BriefDescription = 'HistoryToOGV'
-    LongDescription = 'Sends command history to Out-GridVeiw'
+    Description = 'Sends command history to Out-GridVeiw'
     ScriptBlock = {
         Get-History | Out-GridView -Title 'Select Command' -PassThru | Invoke-History
     }
 }
 Set-PSReadlineKeyHandler @history
 
+# Capture screen (terminal)
+$captureScreen = @{
+    Chord = 'F12'
+    BriefDescription = 'Capture terminal screen'
+    Description = 'Capture terminal screen; shift up/down arrow to expand selection; enter to save to clipboard'
+}
+Set-PSReadLineKeyHandler @captureScreen
 
 #############
 # FUNCTIONS #
 #############
+
+function which($name) {
+    Get-Command -Name $name | Select-Object -ExpandProperty Definition
+}
+
 Function Get-Weather {
     param (
         [switch]$Detailed,
@@ -162,7 +173,6 @@ Function Get-Weather {
         Invoke-RestMethod https://wttr.in/cape+elizabeth?0
     }
 }
-
 
 ########
 # TIPS #
@@ -228,6 +238,12 @@ Terminal:
 
 # Toggle between listView and inLine for intelliSense prediction
     - F2
+
+# Capture screen (terminal)
+    - F12
+
+# Which function: (shows function parameters)
+    - which <functionName>
 "
 
 ############

@@ -1,4 +1,4 @@
-# v4.0.4
+# v4.0.5
 
 ###########
 # Modules #
@@ -345,6 +345,7 @@ $Quotes = @(
     "The obstacle on the path becomes the way. - Marcus Aurelius"
     "The best way to predict the future is to create it. - Abraham Lincoln"
     "The courage to start. The Discipline to finish. The confidence to figure it out. The patience to know progress is not always visible. The persistence to keep going, even on the bad days. That's the formula to winning."
+    "The truly free individual is free only to the extent of his own self-mastery. While those who will not govern themselves are condemned to find masters to govern over them. — Steven Pressfield, The War of Art"
 
     # IT: Coding/DevOps/etc.
     "Automation applied to an efficient operation will magnify the efficiency. Automation applied to an inefficient operation will magnify the inefficiency. - Bill Gates"

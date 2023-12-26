@@ -1,5 +1,15 @@
 ﻿# To Do List
 
+
+
+
+Look at what Sam Erde has done: <https://github.com/SamErde/PowerShell-Pre-Workout>
+    - He leveraged this concept from a blog about using different profiles for core, posh, terminal and vscode: <https://powershellisfun.com/2023/11/23/using-a-specific-powershell-profile-for-a-console-session-windows-terminal-powershell-ise-or-visual-studio-code/>
+    - Also has his own install oh-my-posh
+
+
+
+
 1. Improve CI/CD with psframework something other than psake
 2. There should be an artifact created for each build that can be downloaded as a .zip. This makes it easier on a baremetal machine to install the module - no need to clone the repo and build it which in itself requires several dependencies. Just download the .zip, extract and run Install-PsWinDose.ps1.
 
@@ -21,6 +31,9 @@ Invoke-Expression -Command $scriptContent
 ```
 
 Have this code on the ReadMe.md so it is as easy is going to the github repo and copy/pasting to get going.
+
+
+3. Configure the time zone automatically in case it's in pst like it happened on win11
 
 ## Ideas
 

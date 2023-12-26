@@ -13,8 +13,12 @@ Test-Elevation
     param()
     $AdminConsole = [bool](([System.Security.Principal.WindowsIdentity]::GetCurrent()).groups -match "S-1-5-32-544")
 
-    if ($AdminConsole -like "False*") {
-        Write-Warning "You need to run PowerShell as an administrator to use this function!`n"
-        Break
+    if ($AdminConsole -eq $false) {
+        Write-Verbose "You are not running PowerShell as an administrator"
+        return $false
+    }
+    if ($AdminConsole -like $true) {
+        Write-Verbose "You are running PowerShell as an administrator"
+        return $true
     }
 }

@@ -98,7 +98,7 @@ Windows Terminal Tips and Tricks: https://learn.microsoft.com/en-us/windows/term
 
     # Extract the fonts from the zip file
     $fontsExtractPath = "$PWD\Fonts"
-    Expand-Archive -Path $fontsZipPath -DestinationPath $fontsExtractPath
+    Expand-Archive -Path $fontsZipPath -DestinationPath $fontsExtractPath -Force
 
     # Wait for the extraction to complete
     Start-Sleep -Seconds 2

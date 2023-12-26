@@ -6,96 +6,57 @@ Adds right click context menu to open files and folders with VS Code
 Adds right click context menu to open files and folders with VS Code
 .EXAMPLE
 Add-VsCodeRightClick
+
+.NOTES
+Win 11 context menu
+https://www.youtube.com/watch?v=yzsb_il7aPw
+
 #>
     [cmdletbinding()]
     param(
         $vsCodePath = "C:\Program Files\Microsoft VS Code\Code.exe"
     )
-
-
-<#
-ORGINAL CMD File:
-
-
-
-Windows Registry Editor Version 5.00
-
-; Open files
-[HKEY_CLASSES_ROOT\*\shell\Open with VS Code]
-@="Edit with VSCode"
-"Icon"="C:\\Program Files\\Microsoft VS Code\\Code.exe,0"
-
-[HKEY_CLASSES_ROOT\*\shell\Open with VS Code\command]
-@="\"C:\\Program Files\\Microsoft VS Code\\Code.exe\" \"%1\""
-
-; Open Folders
-[HKEY_CLASSES_ROOT\Directory\shell\vscode]
-@="Open with VSCode"
-"Icon"="\"C:\\Program Files\\Microsoft VS Code\\Code.exe\",0"
-
-[HKEY_CLASSES_ROOT\Directory\shell\vscode\command]
-@="\"C:\\Program Files\\Microsoft VS Code\\Code.exe\" \"%1\""
-
-; Open current Directory
-[HKEY_CLASSES_ROOT\Directory\Background\shell\vscode]
-@="Open with VSCode"
-"Icon"="\"C:\\Program Files\\Microsoft VS Code\\Code.exe\",0"
-
-[HKEY_CLASSES_ROOT\Directory\Background\shell\vscode\command]
-@="\"C:\\Program Files\\Microsoft VS Code\\Code.exe\" \"%V\""
-
-
-#>
-
-# trying to convert it into powershell but getting stuck on the HKCR:\*
-
-
+    # Need to run as admin
+    if (!(Test-Elevation)) {
+        Write-Error "Session is not elevated. Please run this script as an Administrator!" -ErrorAction Stop
+    }
 
     if (Test-Path $vsCodePath -ErrorAction Stop) {
-        Write-Host "Adding right click context menu for VS Code...  UNDER DEVELOPMENT" -fore red
+        Write-Output "Adding right click context menu for VS Code..."
 
+        # Create a registry drive for HKEY_CLASSES_ROOT
         New-PSDrive -Name "HKCR" -PSProvider Registry -Root "HKEY_CLASSES_ROOT" -ErrorAction SilentlyContinue | Out-Null
 
         # Open files
-        #$openWithVSCodeKey = "HKCR:\*\shell\Open with VS Code"
-        #$openWithVSCodeCommandKey = "$openWithVSCodeKey\command"
-        #if (!(Test-Path $openWithVSCodeKey) -or (Get-ItemPropertyValue $openWithVSCodeKey -Name "(default)") -ne "Edit with VSCode" -or (Get-ItemPropertyValue $openWithVSCodeKey -Name "Icon") -ne "$vsCodePath,0") {
-        #    New-Item -Path $openWithVSCodeKey -Force | Out-Null
-        #    Set-ItemProperty -Path $openWithVSCodeKey -Name "(default)" -Value "Edit with VSCode"
-        #    Set-ItemProperty -Path $openWithVSCodeKey -Name "Icon" -Value "$vsCodePath,0"
-        #}
+        ## NOTE: The open files section will create the folders but has problems setting values in this location for some reason...
+        ## If you want to add the open files context menu option you will need to manually set the values in the registry.
+        $rootPath = "HKCR:\*\shell\vscode"
+        New-Item -Path $rootPath -Force
+        #Set-ItemProperty -Path $rootPath -Name "(default)" -Value "Open with VSCode" -Force
+        #Set-ItemProperty -Path $rootPath -Name "Icon" -Value "`"$vsCodePath`",0" -Force
+            # Value: "C:\Program Files\Microsoft VS Code\Code.exe",0
 
-        #if (!(Test-Path $openWithVSCodeCommandKey) -or (Get-ItemPropertyValue $openWithVSCodeCommandKey -Name "(default)") -ne "`"$vsCodePath`" `"%1`"") {
-        #    New-Item -Path $openWithVSCodeCommandKey -Force | Out-Null
-        #    Set-ItemProperty -Path $openWithVSCodeCommandKey -Name "(default)" -Value "`"$vsCodePath`" `"%1`""
-        #}
+        New-Item -Path "$rootPath\command" -Force
+        #Set-ItemProperty -Path "$rootPath\command" -Name "(Default)" -Value "`"$vsCodePath`" `"%1`"" -Force
+            # Value: "C:\Program Files\Microsoft VS Code\Code.exe" "%1"
 
-        ## Open Folders
-        #$openFolderKey = "HKCR:\Directory\shell\vscode"
-        #$openFolderCommandKey = "$openFolderKey\command"
-        #if (!(Test-Path $openFolderKey) -or (Get-ItemPropertyValue $openFolderKey -Name "(default)") -ne "Open with VSCode" -or (Get-ItemPropertyValue $openFolderKey -Name "Icon") -ne "`"$vsCodePath`",0") {
-        #    New-Item -Path $openFolderKey -Force | Out-Null
-        #    Set-ItemProperty -Path $openFolderKey -Name "(default)" -Value "Open with VSCode"
-        #    Set-ItemProperty -Path $openFolderKey -Name "Icon" -Value "`"$vsCodePath`",0"
-        #}
-        #
-        #if (!(Test-Path $openFolderCommandKey) -or (Get-ItemPropertyValue $openFolderCommandKey -Name "(default)") -ne "`"$vsCodePath`" `"%1`"") {
-        #    New-Item -Path $openFolderCommandKey -Force | Out-Null
-        #    Set-ItemProperty -Path $openFolderCommandKey -Name "(default)" -Value "`"$vsCodePath`" `"%1`""
-        #}
-        #
-        ## Open current Directory
-        #$openCurrentDirectoryKey = "HKCR:\Directory\Background\shell\vscode"
-        #$openCurrentDirectoryCommandKey = "$openCurrentDirectoryKey\command"
-        #if (!(Test-Path $openCurrentDirectoryKey) -or (Get-ItemPropertyValue $openCurrentDirectoryKey -Name "(default)") -ne "Open with VSCode" -or (Get-ItemPropertyValue $openCurrentDirectoryKey -Name "Icon") -ne "`"$vsCodePath`",0") {
-        #    New-Item -Path $openCurrentDirectoryKey -Force | Out-Null
-        #    Set-ItemProperty -Path $openCurrentDirectoryKey -Name "(default)" -Value "Open with VSCode"
-        #    Set-ItemProperty -Path $openCurrentDirectoryKey -Name "Icon" -Value "`"$vsCodePath`",0"
-        #}
-        #
-        #if (!(Test-Path $openCurrentDirectoryCommandKey) -or (Get-ItemPropertyValue $openCurrentDirectoryCommandKey -Name "(default)") -ne "`"$vsCodePath`" `"%V`"") {
-        #    New-Item -Path $openCurrentDirectoryCommandKey -Force | Out-Null
-        #    Set-ItemProperty -Path $openCurrentDirectoryCommandKey -Name "(default)" -Value "`"$vsCodePath`" `"%V`""
-        #}
+        # Open folders with VS Code
+        $directoryPath = "HKCR:\Directory\shell\vscode"
+        New-Item -Path $directoryPath -Force
+        Set-ItemProperty -Path $directoryPath -Name "(default)" -Value "Open with VSCode" -Force
+        Set-ItemProperty -Path $directoryPath -Name "Icon" -Value "`"$vsCodePath`",0" -Force
+
+        New-Item -Path "$directoryPath\command" -Force
+        Set-ItemProperty -Path "$directoryPath\command" -Name "(default)" -Value "`"$vsCodePath`" `"%1`"" -Force
+
+        # Open current Directory
+        $backgroundPath = "HKCR:\Directory\Background\shell\vscode"
+        New-Item -Path $backgroundPath -Force
+        Set-ItemProperty -Path $backgroundPath -Name "(default)" -Value "Open with VSCode"
+        Set-ItemProperty -Path $backgroundPath -Name "Icon" -Value "`"$vsCodePath`",0"
+
+        New-Item -Path "$backgroundPath\command" -Force
+        Set-ItemProperty -Path "$backgroundPath\command" -Name "(default)" -Value "`"$vsCodePath`" `"%V`""
     }
+    Write-Output "Open with VSCode context menu option added successfully."
 }

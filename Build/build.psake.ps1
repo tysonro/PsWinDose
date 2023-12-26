@@ -81,6 +81,9 @@ Task 'Build' -Depends 'Init' {
     # Copy profile.ps1 to artifact folder
     Copy-Item -Path "$env:BHProjectPath\Profile\profile.ps1" -Destination "$env:ArtifactPath\profile.ps1"
 
+    # Copy Config folder to artifact folder
+    Copy-Item -Path "$env:BHModulePath\Public\Config" -Destination $env:ArtifactPath -Recurse
+
     # Combine functions into a single .psm1 module
     @($PublicFunctions + $PrivateFunctions) | Get-Content | Add-Content -Path $env:ArtifactModulePath -Encoding UTF8
 

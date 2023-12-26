@@ -32,6 +32,10 @@ about_Profiles: https://learn.microsoft.com/en-us/powershell/module/microsoft.po
         $env:OneDrive + "\Documents\PowerShell\Microsoft.VSCode_profile.ps1" #7.x vscode
         $env:OneDrive + "\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1" #5.1
         $env:OneDrive + "\Documents\WindowsPowerShell\Microsoft.VSCode_profile.ps1" #5.1 vscode
+        $env:UserProfile + "\Documents\PowerShell\Microsoft.PowerShell_profile.ps1" #7.x
+        $env:UserProfile + "\Documents\PowerShell\Microsoft.VSCode_profile.ps1" #7.x vscode
+        $env:UserProfile + "\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1" #5.1
+        $env:UserProfile + "\Documents\WindowsPowerShell\Microsoft.VSCode_profile.ps1" #5.1 vscode
     )
 
     foreach ($profilePath in $paths) {

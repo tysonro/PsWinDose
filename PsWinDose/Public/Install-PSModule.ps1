@@ -27,6 +27,9 @@ Install-PSModule
         'ExchangeOnlineManagement'
         'posh-git'
         'terminal-icons'
+        'Microsoft.PowerShell.SecretManagement'
+        'Microsoft.PowerShell.SecretStore'
+        'Microsoft.WinGet.Client'
         'PSKoans' # Will Install Pester as a dependency!
         'PSEverything' # Requires 'Everything' app installed which is handled in the Install-Software script
         'PSDevOps' # James Brundage's module to automate git, Az Dev Ops and Github for DevOps tasks

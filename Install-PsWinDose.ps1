@@ -17,7 +17,7 @@ param(
 $scriptRoot = Split-Path -Parent $MyInvocation.MyCommand.Definition
 Write-Verbose "Script root: $scriptRoot"
 
-$buildArtifactPath = Join-Path -Path "$scriptRoot\BuildOutput\Artifacts" -ChildPath $env:BHProjectName
+$buildArtifactPath = Join-Path -Path "$scriptRoot\BuildOutput\Artifacts" -ChildPath (Get-Item -Path $scriptRoot).baseName
 Write-Verbose "Build artifact path: $buildArtifactPath"
 
 # Get the default module path from the first array index of environment variable PsModulePath (typically the user's ..\Documents\WindowsPowerShell\Modules folder)

@@ -39,10 +39,10 @@ Set-WindowStyle -Style MINIMIZE -MainWindowHandle $MainWindowHandle
     if ($PSCmdlet.ShouldProcess("Window Style", "Set")) {
         Write-Verbose ("Set Window Style {1} on handle {0}" -f $MainWindowHandle, $($WindowStates[$style]))
 
-        $Win32ShowWindowAsync = Add-Type -memberDefinition @”
+        $Win32ShowWindowAsync = Add-Type -memberDefinition @"
             [DllImport("user32.dll")]
             public static extern bool ShowWindowAsync(IntPtr hWnd, int nCmdShow);
-“@ -name “Win32ShowWindowAsync” -namespace Win32Functions -passThru
+"@ -name “Win32ShowWindowAsync” -namespace Win32Functions -passThru
 
         $Win32ShowWindowAsync::ShowWindowAsync($MainWindowHandle, $WindowStates[$Style]) | Out-Null
     }

@@ -179,6 +179,8 @@ Variables:
 
 Functions:
 - Get-Weather
+- Show-ObjectTree
+    - Allows you to pipe an object to a TUI tree view (requires Pwsh 7 and Microsoft.PowerShell.ConsoleGuiTools module)
 - `${Function:<functionName>} #dumps out function source code
 
 InteliSense (posh 7.0 only)

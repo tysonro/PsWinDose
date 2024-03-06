@@ -5,6 +5,7 @@
 
 Look at what Sam Erde has done: <https://github.com/SamErde/PowerShell-Pre-Workout>
     - He leveraged this concept from a blog about using different profiles for core, posh, terminal and vscode: <https://powershellisfun.com/2023/11/23/using-a-specific-powershell-profile-for-a-console-session-windows-terminal-powershell-ise-or-visual-studio-code/>
+    - The idea is to dot source the specific profile you want based on logic in your main profile. Say based on environment... Makes for a more tailored shell experience
     - Also has his own install oh-my-posh
 
 

@@ -19,15 +19,18 @@ PS> .\Start-WindowsSetup.ps1 -RepoName 'repo1' -RepoPath '\\server1\Repo1Path'
         $RepoPath
     )
 
-    if (-not $env:PsWinDose) {
-        Initialize-PsWinDose
-    }
+    Import-Module PSFramework
+    Write-PSFMessage -Level Verbose "Starting Windows Setup"
 
-    # I think I need to find out where its necessary to run as admin and maybe just elevate for that portion (meaning, separate the logic out for admin functions).
+        # I think I need to find out where its necessary to run as admin and maybe just elevate for that portion (meaning, separate the logic out for admin functions).
     # I'd rather have it mostly run in the user context. Winget for example will prompt for admin creds when a software needs it. (by default)
     # Example, the package providers probably do need admin rights, but i should be installing those for ALL users. Modules should be current user only.
     if (-not (Test-Elevation)) {
         throw "Need to run as administrator"
+    }
+
+    if (-not $env:PsWinDose) {
+        Initialize-PsWinDose
     }
 
     if ($pscmdlet.ShouldProcess($repoName)) {
@@ -45,7 +48,7 @@ PS> .\Start-WindowsSetup.ps1 -RepoName 'repo1' -RepoPath '\\server1\Repo1Path'
         Install-PSModule
 
         # Install VSCode Extensions
-        Install-VSCodeExtension
+        #Install-VSCodeExtension
 
 
 

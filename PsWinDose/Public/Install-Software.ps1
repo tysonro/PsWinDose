@@ -73,6 +73,7 @@ Winget Docs: https://learn.microsoft.com/en-us/windows/package-manager/winget/
     [CmdletBinding()]
     param ()
 
+    Import-Module PSFramework
 
 # # 1. Install powershell 7.x
 
@@ -84,18 +85,18 @@ Winget Docs: https://learn.microsoft.com/en-us/windows/package-manager/winget/
 # "logitech gaming software" --- I think this is the one i want... !!!
 # https://download01.logi.com/web/ftp/pub/techsupport/gaming/LGS_9.04.49_x64_Logitech.exe
 
-    $LogiGamingSoftware = 'https://download01.logi.com/web/ftp/pub/techsupport/gaming/LGS_9.04.49_x64_Logitech.exe'
-    $LogiDestination = (Get-PsWinDoseSettings).SoftwareDestinationPath
-    if (-not (Test-Path -Path $LogiDestination)) {
-        try {
-            New-Item -Path $LogiDestination -ItemType Directory
-        } catch {
-            throw "Unable to create download path: $LogiDestination"
-        }
-    }
-    Invoke-WebRequest -Uri $LogiGamingSoftware -OutFile (Join-Path $LogiDestination 'LogitechGamingSoftware.exe')
+#    $LogiGamingSoftware = 'https://download01.logi.com/web/ftp/pub/techsupport/gaming/LGS_9.04.49_x64_Logitech.exe'
+#    $LogiDestination = (Get-PsWinDoseSetting).SoftwareDestinationPath
+#    if (-not (Test-Path -Path $LogiDestination)) {
+#        try {
+#            New-Item -Path $LogiDestination -ItemType Directory
+#        } catch {
+#            throw "Unable to create download path: $LogiDestination"
+#        }
+#    }
+#    Invoke-WebRequest -Uri $LogiGamingSoftware -OutFile (Join-Path $LogiDestination 'LogitechGamingSoftware.exe')
 
-    Start-Process -Path (Join-Path $LogiDestination 'LogitechGamingSoftware.exe') -verbose
+#    Start-Process -Path (Join-Path $LogiDestination 'LogitechGamingSoftware.exe') -verbose
 
 
     # Install LogiTech G Series Hub software for keyboard and mouse
@@ -133,6 +134,9 @@ Winget Docs: https://learn.microsoft.com/en-us/windows/package-manager/winget/
         Write-Output "Winget is already installed."
     }
 
+    Write-PSFramework -Level Important "Upgrading winget and accepting source agreements"
+    winget upgrade --accept-source-agreements --accept-source-agreements --force
+
     ##############
     # CHOCOLATEY #
     ##############
@@ -157,8 +161,8 @@ Winget Docs: https://learn.microsoft.com/en-us/windows/package-manager/winget/
     # WINGET #
     ##########
     $wgAppList = @(
-        'Git.Git'
-        'Microsoft.PowerShell' #PowerShell 7.x
+        #'Git.Git'
+        #'Microsoft.PowerShell' #PowerShell 7.x
         'mRemoteNG.mRemoteNG'
         'sysinternals' #SysInternals Suite
         'Micorosft.PowerToys' #Profile backup: $env:OneDrive\Documents\PowerToys\Backup
@@ -171,21 +175,21 @@ Winget Docs: https://learn.microsoft.com/en-us/windows/package-manager/winget/
         'gerardog.gsudo' #SUDO: https://github.com/gerardog/gsudo
         #'Git Credential Manager Core'
         #'GitHub.cli'
-        'Microsoft.SQLServerManagementStudio'
-        'Microsoft.AzureDataStudio'
+        #'Microsoft.SQLServerManagementStudio'
+        #'Microsoft.AzureDataStudio'
         'Microsoft.AzureStorageExplorer'
         'Microsoft.Azure.FunctionsCoreTools'
         'JanDeDobbeleer.OhMyPosh' #Prompt engine to customize the shell prompt
         #'Grammarly.Grammarly' #Grammarly for Windows
         'flux.flux' #Flux: adjusts screen brightness based on time of day
-        'Notepad++.Notepad++'
+        #'Notepad++.Notepad++'
         'baremetalsoft.baretail' #BareTail: log file viewer
     )
 
     foreach ($app in $wgAppList) {
         if ((winget list $app) -like "*no installed package*") {
             Write-Host "Installing $app..." -ForegroundColor Cyan
-            winget install $app
+            winget install $app --accept-source-agreements --accept-source-agreements --force
         } else {
             Write-Host "$app is already installed." -ForegroundColor Green
         }

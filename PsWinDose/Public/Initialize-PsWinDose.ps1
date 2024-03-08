@@ -11,7 +11,10 @@ Initialize-PsWinDose
 #>
 [CmdletBinding()]
 Param()
-    Write-Verbose "[Initilize-PsWinDose] Initializing PsWinDose module...]"
+    # Ensure PSFramework is installed for logging
+    Test-ModuleDependency -Name 'PSFramework' -ErrorAction Stop
+    Import-Module PSFramework
+    Write-PSFMessage -Level Verbose "Initializing PsWinDose module...]"
 
     # Get the PsWinDose settings (settings.json)
     $Settings = Get-PsWinDoseSetting
@@ -34,9 +37,12 @@ Param()
         }
     }
 
+    # Enable sudo (not yet available, but I think this is how you'd do it)
+    ## https://devblogs.microsoft.com/commandline/introducing-sudo-for-windows/
+    #sudo config --enable inline
 
 ### hmm, i need admin rights to set env: vars... use something else? or just run this as admin?
-
+        ## Use sudo!
 
     # Set the PsWinDose environment variable
     if (-not $env:PsWinDose) {

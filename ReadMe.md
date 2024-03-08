@@ -13,7 +13,7 @@ A heavy dose of:
 
 Pretty much a collection of common tools I can use to automate my Windows experience.
 
-*NOTE: This project is intented for my own personal use, however if you find it helpful, feel free to use at your own risk! ...It mostly works ;)*
+*NOTE: This project is intended for my own personal use, however if you find it helpful, feel free to use at your own risk! ...It mostly works ;)*
 
 *DISCLAIMER: I've accumulated a lot of code over the years, many of which is certainly not original. Unfortunately, I haven't done a good job of keeping track of all the original source of any code I may have copied. I'll start trying to do better, but if anyone finds their code on here and would like me to reference their blog or project, let me know and I'd be happy to do so!*
 

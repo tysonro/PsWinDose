@@ -6,7 +6,11 @@
 
 Import-Module posh-git
 Import-Module Terminal-Icons
-Import-Module PSReadline
+# Check if we're running inside VS Code with the PowerShell extension
+if ($null -eq $psEditor) {
+    # We're not running inside VS Code, import PSReadLine
+    Import-Module PSReadLine
+}
 #Import-Module PSReadline -MinimumVersion 2.2.2
 #Import-Module ugit
 if ($PSVersionTable.PSVersion -lt [version]'7.2') {

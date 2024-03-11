@@ -12,7 +12,7 @@
 RootModule = 'PsWinDose.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.4.14'
+ModuleVersion = '1.4.15'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()

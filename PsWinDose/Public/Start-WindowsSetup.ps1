@@ -37,17 +37,16 @@ PS> .\Start-WindowsSetup.ps1 -RepoName 'repo1' -RepoPath '\\server1\Repo1Path'
         # Bootstrap and install package providers
         Install-PSPackageProvider -RepoName $RepoName -RepoPath $RepoPath -AddPrivateRepo
 
-        # Install-PwrSh7
-
-
         # Install software
-## Needs winget installed first!!!!
+        ## Needs winget installed first!!!!
         Install-Software
 
         # Install PowerShell Modules
         Install-PSModule
 
+
         # Install VSCode Extensions
+        ## I'm using vscode profiles now so maybe i need to figure out how to export/import those over...?
         #Install-VSCodeExtension
 
 

@@ -118,8 +118,19 @@ Windows Terminal Tips and Tricks: https://learn.microsoft.com/en-us/windows/term
 
 # NOTE (tyson):: This needs to be set in the settings.json file of the windows terminal:
 # You need to set the "Caskaydia..." fonts as the default font in the settings.json file of the windows terminal
-<#
+# Copy custom settings.json file to the windows terminal settings.json file
+# Define the paths to your custom settings.json file and the default settings.json file
+#$customSettingsPath = "path\to\your\custom\settings.json"
+#$defaultSettingsPath = "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
+    # terminal settings file path
+#                       "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
 
+# Make a backup of the original settings.json file
+#Copy-Item -Path $defaultSettingsPath -Destination "${defaultSettingsPath}.backup"
+
+# Replace the default settings.json file with your custom one
+#Copy-Item -Path $customSettingsPath -Destination $defaultSettingsPath -Force
+<#
     "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
     "profiles":
     {
@@ -133,17 +144,29 @@ Windows Terminal Tips and Tricks: https://learn.microsoft.com/en-us/windows/term
 
 #>
 
+
+
+
+
+
+
+
+# VSCODE Settings (settings.json)
 # https://ohmyposh.dev/docs/installation/fonts
 #NOTE: (tyson):: For VSCODE font, do this:
 #path: $env:AppData\Code\User\settings.json
 # update font (in settings.json) - settings > Font > open json:
-#"editor.fontFamily": "CaskaydiaCove Nerd Font Mono, Consolas, 'Courier New', monospace",
-#"editor.fontLigatures": true
+$settings = @"
+    "editor.fontFamily": "CaskaydiaCove Nerd Font Mono, Consolas, 'Courier New', monospace",
+    "editor.fontLigatures": true
+    "editor.fontFamily": "CaskaydiaCove Nerd Font Mono",
+    "editor.fontLigatures": true,
+    "terminal.integrated.fontFamily": "CaskaydiaCove Nerd Font Mono",
+"@
+# Replace the default settings.json file with your custom one
+Set-Content -Path "$env:AppData\Code\User\settings.json" -Value $settings
 
 
-#"editor.fontFamily": "CaskaydiaCove Nerd Font Mono",
-#"editor.fontLigatures": true,
-#"terminal.integrated.fontFamily": "CaskaydiaCove Nerd Font Mono",
 
 #integrated font family (search in settings)
 #CaskaydiaCove Nerd Font Mono, Consolas, 'Courier New', monospace
@@ -156,9 +179,6 @@ Windows Terminal Tips and Tricks: https://learn.microsoft.com/en-us/windows/term
 
 
 
-
-    # terminal settings file path
-    #%LOCALAPPDATA%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json
 
 <#
     # Create a custom profile for PowerShell Core

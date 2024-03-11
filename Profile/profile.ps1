@@ -7,7 +7,7 @@
 Import-Module posh-git
 Import-Module Terminal-Icons
 Import-Module PSReadline -MinimumVersion 2.2.2
-Import-Module ugit
+#Import-Module ugit
 if ($PSVersionTable.PSVersion -lt [version]'7.2') {
     # This module creates the $PSStyle variable for versions of PowerShell that don't have it built-in
     Import-Module psstyle
@@ -47,7 +47,8 @@ Set-Alias -Name n+ -Value "C:\Program Files\Notepad++\notepad++.exe"
 #Set-PSReadlineOption -EditMode vi -BellStyle None
 
 # Set oh-my-posh theme
-oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/powerlevel10k_rainbow.omp.json" | Invoke-Expression
+#oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/powerlevel10k_rainbow.omp.json" | Invoke-Expression
+oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/kushal.omp.json" | Invoke-Expression
 
 <# Setup PSReadLine
 if ($host.Name -eq 'ConsoleHost' -or $host.Name -eq 'Visual Studio Code Host' ) {

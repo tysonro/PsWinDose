@@ -6,7 +6,8 @@
 
 Import-Module posh-git
 Import-Module Terminal-Icons
-Import-Module PSReadline -MinimumVersion 2.2.2
+Import-Module PSReadline
+#Import-Module PSReadline -MinimumVersion 2.2.2
 #Import-Module ugit
 if ($PSVersionTable.PSVersion -lt [version]'7.2') {
     # This module creates the $PSStyle variable for versions of PowerShell that don't have it built-in

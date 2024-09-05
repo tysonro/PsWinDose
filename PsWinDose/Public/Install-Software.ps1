@@ -184,6 +184,7 @@ Winget Docs: https://learn.microsoft.com/en-us/windows/package-manager/winget/
         'flux.flux' #Flux: adjusts screen brightness based on time of day
         #'Notepad++.Notepad++'
         'baremetalsoft.baretail' #BareTail: log file viewer
+        'Microsoft.AzureCLI' #Azure CLI
     )
 
     foreach ($app in $wgAppList) {

@@ -4,7 +4,7 @@
     Get PowerShell Cheat Sheet
 
     .DESCRIPTION
-    Get PowerShell Cheat Sheet will return a list of common PowerShell commands and their descriptions
+    PowerShell Cheat Sheet will return a list of common PowerShell commands and their descriptions
 
     .EXAMPLE
     Get-CheatSheetPosh
@@ -12,7 +12,7 @@
     Returns all of the commands and descriptions
 
     .EXAMPLE
-    Get-CheatSheetposh -Search "repadmin"
+    Get-CheatSheetPosh -Search "repadmin"
 
     Returns all of the commands and descriptions that match the search term
 

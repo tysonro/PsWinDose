@@ -4,7 +4,7 @@
 Get CMD Cheat Sheet
 
 .DESCRIPTION
-Get CMD Cheat Sheet will return a list of common CMD commands and their descriptions
+CMD Cheat Sheet will return a list of common CMD commands and their descriptions
 
 .EXAMPLE
 Get-CheatSheetCmd

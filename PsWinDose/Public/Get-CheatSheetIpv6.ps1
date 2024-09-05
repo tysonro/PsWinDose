@@ -4,7 +4,7 @@
 Get Ipv6 Cheat Sheet
 
 .DESCRIPTION
-Get Ipv6 Cheat Sheet will return helpful Ipv6 related information
+Ipv6 Cheat Sheet will return helpful Ipv6 related information
 
 .EXAMPLE
 Get-CheatSheetIpv6

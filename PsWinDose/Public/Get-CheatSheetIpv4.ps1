@@ -4,7 +4,7 @@
 Get Ipv4 Cheat Sheet
 
 .DESCRIPTION
-Get Ipv4 Cheat Sheet will return helpful Ipv4 related information
+Ipv4 Cheat Sheet will return helpful Ipv4 related information
 
 .EXAMPLE
 Get-CheatSheetIpv4

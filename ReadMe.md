@@ -19,15 +19,18 @@ Pretty much a collection of common tools I can use to automate my Windows experi
 
 ### Current Commands:
 
+Add-HostsEntry
 Add-VsCodeRightClick  
 Get-CheatSheetCmd  
 Get-CheatSheetIpv4  
 Get-CheatSheetIpv6  
+Get-CheatSheetPosh
 Get-CheatSheetRegEx  
 Get-CmdletAlias  
 Get-ElevationStatus  
 Get-FileOwner  
 Get-FolderSize  
+Get-HostsFile
 Get-MsAppBuildVersion  
 Get-PoshTheme  
 Get-PSProfile  
@@ -41,6 +44,7 @@ Install-PSProfile
 Install-Software  
 Install-VSCodeExtension  
 New-BootableUSB  
+Remove-HostsEntry
 Remove-Software  
 Set-CustomTerminal  
 Set-PoshTheme  

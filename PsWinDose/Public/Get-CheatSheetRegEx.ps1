@@ -4,7 +4,7 @@
 Get RegEx Cheat Sheet
 
 .DESCRIPTION
-Get RegEx Cheat Sheet will return helpful RegEx related information
+RegEx Cheat Sheet will return helpful RegEx related information
 
 .EXAMPLE
 Get-CheatSheetRegEx

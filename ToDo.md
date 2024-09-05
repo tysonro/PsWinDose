@@ -1,5 +1,16 @@
 ﻿# To Do List
 
+- Add a build/version badge to the readme
+
+Installing module idea... can I set it up like this:
+
+`iex (irm https://raw.githubusercontent.com/rmbolger/Posh-ACME/main/instdev.ps1)`
+
+Simply run that and it will run a bootstrap script, download the module, run install-pswindose.ps1, etc.
+
+
+  -- Improve the Invoke-TeamsActivity module.
+    - Better host output with time elapse.
 
 
 
@@ -11,7 +22,8 @@ Look at what Sam Erde has done: <https://github.com/SamErde/PowerShell-Pre-Worko
 
 
 
-1. Improve CI/CD with psframework something other than psake
+1. Improve CI/CD with psframework something other than psake  
+   
 2. There should be an artifact created for each build that can be downloaded as a .zip. This makes it easier on a baremetal machine to install the module - no need to clone the repo and build it which in itself requires several dependencies. Just download the .zip, extract and run Install-PsWinDose.ps1.
 
 The artifact should be published to a location that can be downloaded from a script. This will allow for a 3 liner to install the module.

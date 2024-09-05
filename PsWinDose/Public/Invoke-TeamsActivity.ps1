@@ -18,7 +18,7 @@ Invoke-TeamsActivity
 Will keep Teams status from going idle. The script will run for 30 minutes by default or until you press CTRL+C.
 
 .EXAMPLE
-Reset-TeamsActivity -Timer 10
+Invoke-TeamsActivity -Timer 10
 
 Will keep Teams status from going idle. The script will run until for 10 minutes or until you press CTRL+C.
 
@@ -31,6 +31,7 @@ $TeamsStatus = Get-Content -Path $env:APPDATA"\Microsoft\Teams\logs.txt" -Tail 1
 #>
     [CmdletBinding(SupportsShouldProcess)]
     Param(
+        [Alias("t")]
         $Timer = 30 #Minutes
     )
 

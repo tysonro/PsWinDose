@@ -1,0 +1,10 @@
+﻿{
+    "editor.fontFamily": "CaskaydiaCove Nerd Font Mono, Consolas, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "terminal.integrated.fontFamily": "CaskaydiaCove Nerd Font Mono",
+    "github.copilot.chat.experimental.codeGeneration.instructions": [
+        {
+            "file": "code-style.md"
+        }
+    ]
+}

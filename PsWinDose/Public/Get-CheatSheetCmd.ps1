@@ -49,6 +49,7 @@ Returns all of the commands and descriptions that match the search term
         create partition primary
         format fs=fat32 quick
         "
+        "klist" = "Lists all kerberos tickets"
     }
 
     # Create a table of the commands and descriptions (an array of objects)

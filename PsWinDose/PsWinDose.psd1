@@ -12,7 +12,7 @@
 RootModule = 'PsWinDose.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.5.2'
+ModuleVersion = '1.5.3'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -78,7 +78,7 @@ CmdletsToExport = @()
 VariablesToExport = @()
 
 # Aliases to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no aliases to export.
-AliasesToExport = @('get-sup','get-si','cheat-cmd','cheat-ipv4','cheat-ipv6','cheat-regex', 'cheat-win','cheat-bash','cheat-posh','ita')
+AliasesToExport = @('gsup','gsi', 'gpip', 'cheat-cmd','cheat-ipv4','cheat-ipv6','cheat-regex', 'cheat-win','cheat-bash','cheat-posh','ita')
 
 # DSC resources to export from this module
 # DscResourcesToExport = @()

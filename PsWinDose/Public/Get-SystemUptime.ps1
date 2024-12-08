@@ -28,4 +28,4 @@ gsup
     }
     return $obj
 }
-New-Alias get-sup Get-SystemUptime
+New-Alias gsup Get-SystemUptime

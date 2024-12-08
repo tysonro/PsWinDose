@@ -23,7 +23,7 @@ if ($PSVersionTable.PSVersion -lt [version]'7.2') {
 ############
 
 # Repos:
-New-Variable -Name Repos -Value "$($env:OneDrive)\Scripts" -Scope Global -Force
+New-Variable -Name Repos -Value "$($env:OneDrive)\Repos" -Scope Global -Force
 $null = New-PSDrive -Name Repos -PSProvider FileSystem -Root $Repos -ErrorAction SilentlyContinue
 
 # BD:
@@ -222,6 +222,9 @@ VSCode:
     - Ctrl+` = Open new Terminal
     - F1 = Pop into Help file
 
+# Copilot
+    - Ctrl+Alt+I = Opens copilot chat window
+
 # Explorer
     - Ctrl+B = Hide/Show Explorer
 
@@ -355,6 +358,10 @@ $Quotes = @(
     "The courage to start. The Discipline to finish. The confidence to figure it out. The patience to know progress is not always visible. The persistence to keep going, even on the bad days. That's the formula to winning."
     "The truly free individual is free only to the extent of his own self-mastery. While those who will not govern themselves are condemned to find masters to govern over them. - Steven Pressfield, The War of Art"
     "Consistently boring days make for extraordinary decades."
+    "Finding myself by process of elimination - Jonathan Stefiuk"
+    "There is no such thing as a quantum leap. There is only dogged persistence - and in the end, you make it look like a quantum leap. - James Dyson"
+    "If you can't explain it simply, you don't understand it well enough. - Albert Einstein"
+    "When one person teaches, two people learn - Tiago Forte"
 
     # IT: Coding/DevOps/etc.
     "Automation applied to an efficient operation will magnify the efficiency. Automation applied to an inefficient operation will magnify the inefficiency. - Bill Gates"

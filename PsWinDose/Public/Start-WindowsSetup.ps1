@@ -37,12 +37,19 @@ PS> .\Start-WindowsSetup.ps1 -RepoName 'repo1' -RepoPath '\\server1\Repo1Path'
         # Bootstrap and install package providers
         Install-PSPackageProvider -RepoName $RepoName -RepoPath $RepoPath -AddPrivateRepo
 
-        # Install software
-        ## Needs winget installed first!!!!
-        Install-Software
+        <# Add to bootstrap phase:
+            - Install winget
+            - Install chocolatey
+            - Install Posh 7.x
+            - Install these modules: PSFramework, Microsoft.PowerShell.ConsoleGuiTools
+        #>
 
         # Install PowerShell Modules
         Install-PSModule
+
+        # Install software
+        ## Needs winget installed first!!!!
+        Install-Software
 
 
         # Install VSCode Extensions

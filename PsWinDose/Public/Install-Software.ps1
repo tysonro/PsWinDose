@@ -71,9 +71,11 @@ https://github.com/Jianyunt/ChocolateyGet
 Winget Docs: https://learn.microsoft.com/en-us/windows/package-manager/winget/
 #>
     [CmdletBinding()]
-    param ()
+    param (
+        [switch]$All
+    )
 
-    Import-Module PSFramework
+    Import-Module PSFramework, Microsoft.PowerShell.ConsoleGuiTools
 
 # # 1. Install powershell 7.x
 
@@ -184,10 +186,16 @@ Winget Docs: https://learn.microsoft.com/en-us/windows/package-manager/winget/
         'flux.flux' #Flux: adjusts screen brightness based on time of day
         #'Notepad++.Notepad++'
         'baremetalsoft.baretail' #BareTail: log file viewer
-        'Microsoft.AzureCLI' #Azure CLI
+        'Microsoft.AzureCLI'
+        'Obsidian.Obsidian' #Obsidian: Note taking app
+        'GitHub.GitHubDesktop'
     )
 
-    foreach ($app in $wgAppList) {
+    if (-not $All) {
+        # All switch not used, show Out-ConsoleGridView to select apps
+        $appList = $wgAppList | Out-ConsoleGridView -OutputMode Multiple
+    }
+    foreach ($app in $appList) {
         if ((winget list $app) -like "*no installed package*") {
             Write-Host "Installing $app..." -ForegroundColor Cyan
             winget install $app --accept-source-agreements --accept-source-agreements --force

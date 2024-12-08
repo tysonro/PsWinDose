@@ -16,10 +16,14 @@ Installs all my favorite PowerShell modules:
 Install-PSModule
 #>
     [cmdletbinding()]
-    param()
+    param(
+        [switch]$All
+    )
+
+    Import-Module PSFramework, Microsoft.PowerShell.ConsoleGuiTools
 
     # Modules to install
-    $Modules = @(
+    $ModulesList = @(
         'Az.Accounts'
         'Az.Resources'
         'Az.Storage'
@@ -36,6 +40,11 @@ Install-PSModule
         'PSFramework' # Fred Weinmann's module that provides tools for other modules and scripts (logging, etc.)
         'Az.Tools.Predictor' # Provides predictive intellisense for Az modules (requires PS 7.2+)
     )
+
+    if (-not $All) {
+        # All switch not specified
+        $Modules = $ModulesList | Out-ConsoleGridView -OutputMode Multiple
+    }
 
     # Install PowerShell Modules
     Foreach ($Module in $Modules) {

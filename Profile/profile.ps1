@@ -362,6 +362,8 @@ $Quotes = @(
     "There is no such thing as a quantum leap. There is only dogged persistence - and in the end, you make it look like a quantum leap. - James Dyson"
     "If you can't explain it simply, you don't understand it well enough. - Albert Einstein"
     "When one person teaches, two people learn - Tiago Forte"
+    "Time is our most irreplaceable asset - we cannot buy more of it. We can only strive to waste as little as possible. - The Daily Stoic"
+    "The real test in life is not in keeping out of the rough, but in getting out after you are in. - Zig Ziglar"
 
     # IT: Coding/DevOps/etc.
     "Automation applied to an efficient operation will magnify the efficiency. Automation applied to an inefficient operation will magnify the inefficiency. - Bill Gates"

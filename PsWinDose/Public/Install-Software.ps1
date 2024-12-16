@@ -179,6 +179,7 @@ Winget Docs: https://learn.microsoft.com/en-us/windows/package-manager/winget/
         #'GitHub.cli'
         #'Microsoft.SQLServerManagementStudio'
         #'Microsoft.AzureDataStudio'
+        #'Microsoft.VisualStudioCode'
         'Microsoft.AzureStorageExplorer'
         'Microsoft.Azure.FunctionsCoreTools'
         'JanDeDobbeleer.OhMyPosh' #Prompt engine to customize the shell prompt

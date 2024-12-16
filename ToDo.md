@@ -1,5 +1,8 @@
 ﻿# To Do List
 
+Draw inspiration from: https://github.com/SamErde/PSPreworkout
+
+
 SPECTRE CONSOLE (TUI)
 pwshspectreconsole module to add a TUI
 Specifically, using it to add TUI functionality on the cheat codes! 

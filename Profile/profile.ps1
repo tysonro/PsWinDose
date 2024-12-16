@@ -364,6 +364,8 @@ $Quotes = @(
     "When one person teaches, two people learn - Tiago Forte"
     "Time is our most irreplaceable asset - we cannot buy more of it. We can only strive to waste as little as possible. - The Daily Stoic"
     "The real test in life is not in keeping out of the rough, but in getting out after you are in. - Zig Ziglar"
+    "Motion creates momentum, and momentum reveals opportunities that standing still never could."
+    "Don't go fetch the egg from the chickens ass just yet!"
 
     # IT: Coding/DevOps/etc.
     "Automation applied to an efficient operation will magnify the efficiency. Automation applied to an inefficient operation will magnify the inefficiency. - Bill Gates"

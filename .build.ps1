@@ -94,12 +94,6 @@ Param(
 #if (!$MyInvocation.ScriptName.EndsWith('Invoke-Build.ps1')) {
 if ($MyInvocation.ScriptName -notlike '*Invoke-Build.ps1') {
 	$ErrorActionPreference = 1
-    Write-Host -Object "~~~~~~~~~~~~~~~~~~"
-    Write-Host -Object "Currend dir: $pwd" -ForegroundColor Yellow
-    Push-Location $PSScriptRoot -StackName 'BuildModule'
-    Write-Host -Object "~~~~~~~~~~~~~~~~~~"
-    Write-Host -Object "PUSH"
-    Write-Host -Object "Currend dir: $pwd" -ForegroundColor Yellow
 
     Write-Host -Object "[pre-build] Starting bootstrap process" -ForegroundColor Green
 
@@ -126,13 +120,7 @@ if ($MyInvocation.ScriptName -notlike '*Invoke-Build.ps1') {
 
     Write-Host -Object "[pre-build] Bootstrap completed" -ForegroundColor Green
     Write-Host -Object "[build] Starting build with InvokeBuild. Executing Tasks: $($Tasks -join ', ')" -ForegroundColor Green
-    Write-Host -Object "~~~~~~~~~~~~~~~~~~"
-    Write-Host -Object "Currend dir: $pwd" -ForegroundColor Yellow
 	return Invoke-Build $Tasks $MyInvocation.MyCommand.Path @PSBoundParameters
-    Pop-Location -StackName 'BuildModule'
-    Write-Host -Object "~~~~~~~~~~~~~~~~~~"
-    Write-Host -Object "POP"
-    Write-Host -Object "Currend dir: $pwd" -ForegroundColor Yellow
 }
 
 # Runs on exit
@@ -188,6 +176,8 @@ task Clean init, {
 #
 task Test init, {
     Write-Host -Object '[Task: Test]' -ForegroundColor Magenta
+
+write-host -object "current dir: $pwd" -ForegroundColor Yellow
 
     # Run unit tests
     Import-Module Pester -Force

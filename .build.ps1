@@ -181,6 +181,8 @@ task Test init, {
 Write-Host -Object "Current dir: $pwd" -ForegroundColor Yellow
 Write-Host -Object "BHProjectPath: $env:BHProjectPath" -ForegroundColor Yellow
 
+Get-ChildItem -Path $env:BHProjectPath | ForEach-Object { Write-Host -Object $_.FullName -ForegroundColor Yellow }
+
 # Check if the test path exists
 $testPath = "$env:BHProjectPath/tests"
 if (-Not (Test-Path -Path $testPath)) {

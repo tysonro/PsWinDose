@@ -253,12 +253,6 @@ task Build init, clean, {
     Step-ModuleVersion -Path $configurationFile -By $stepVersionBy
     $newVersion = (Import-PowerShellDataFile -Path $configurationFile).moduleVersion
 
-
-#########
-    Get-ChildItem -Path "$env:BHProjectPath\source\public" | ForEach-Object { Write-Host -Object $_.FullName -ForegroundColor Yellow }
-######
-
-
     # Build the module artifact
     $buildConfig = @{
         ModuleManifest = $env:BHPSModuleManifest

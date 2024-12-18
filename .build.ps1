@@ -182,7 +182,7 @@ Write-Host -Object "Current dir: $pwd" -ForegroundColor Yellow
 Write-Host -Object "BHProjectPath: $env:BHProjectPath" -ForegroundColor Yellow
 
 # Check if the test path exists
-$testPath = "$env:BHProjectPath\tests"
+$testPath = "$env:BHProjectPath/tests"
 if (-Not (Test-Path -Path $testPath)) {
     Write-Error "Test path '$testPath' does not exist."
     exit 1
@@ -204,7 +204,7 @@ if (-Not (Test-Path -Path $testPath)) {
     Import-Module Pester -Force
     $Config = [PesterConfiguration]@{
         Run = @{
-            Path = "$env:BHProjectPath\tests"
+            Path = "$env:BHProjectPath/tests"
         }
         TestResult = @{
             OutputFormat = 'NunitXml'

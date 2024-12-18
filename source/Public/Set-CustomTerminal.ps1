@@ -156,15 +156,15 @@ Windows Terminal Tips and Tricks: https://learn.microsoft.com/en-us/windows/term
 #NOTE: (tyson):: For VSCODE font, do this:
 #path: $env:AppData\Code\User\settings.json
 # update font (in settings.json) - settings > Font > open json:
-$settings = @"
-    "editor.fontFamily": "CaskaydiaCove Nerd Font Mono, Consolas, 'Courier New', monospace",
-    "editor.fontLigatures": true
-    "editor.fontFamily": "CaskaydiaCove Nerd Font Mono",
-    "editor.fontLigatures": true,
-    "terminal.integrated.fontFamily": "CaskaydiaCove Nerd Font Mono",
-"@
-# Replace the default settings.json file with your custom one
-Set-Content -Path "$env:AppData\Code\User\settings.json" -Value $settings
+#$settings = @"
+#    "editor.fontFamily": "CaskaydiaCove Nerd Font Mono, Consolas, 'Courier New', monospace",
+#    "editor.fontLigatures": true
+#    "editor.fontFamily": "CaskaydiaCove Nerd Font Mono",
+#    "editor.fontLigatures": true,
+#    "terminal.integrated.fontFamily": "CaskaydiaCove Nerd Font Mono",
+#"@
+## Replace the default settings.json file with your custom one
+#Set-Content -Path "$env:AppData\Code\User\settings.json" -Value $settings
 
 
 

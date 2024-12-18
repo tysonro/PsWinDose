@@ -182,9 +182,9 @@ write-host -object "current dir: $pwd" -ForegroundColor Yellow
     # Run unit tests
     Import-Module Pester -Force
     $Config = [PesterConfiguration]@{
-        Run = @{
-            Path = 'tests'
-        }
+        #Run = @{
+        #    Path = 'tests'
+        #}
         TestResult = @{
             OutputFormat = 'NunitXml'
             OutputPath = 'tests\TestResults.Pester.xml'

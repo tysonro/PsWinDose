@@ -9,7 +9,7 @@ on:
 # Define environment variables
 env:
   DEFAULT_BRANCH: main
-  STEP_VERSION_BY: patch # MAJOR | MINOR | PATCH (0.0.0)
+  STEP_VERSION_BY: minor # MAJOR | MINOR | PATCH (0.0.0)
   BUILD_FOLDER_NAME: BuildOutput
   REQUIRED_MODULES_DIRECTORY: RequiredModules
   BUILD_ARTIFACT_NAME: PSModule
@@ -32,7 +32,7 @@ jobs:
 
       # Publish test results
       - name: Publish Test Results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: TestResults
           path: tests/TestResults.Pester.xml

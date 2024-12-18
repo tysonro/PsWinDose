@@ -1,5 +1,3 @@
-# Build directory
+# Build output
 /BuildOutput/*
-*.zip
-*.ttf
-LICENSE
+/tests/TestResults.Pester.xml

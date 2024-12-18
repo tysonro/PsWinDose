@@ -24,7 +24,7 @@ BeforeDiscovery {
 BeforeAll {
     $AnalyzerParams = @{
         Path = "$env:BHModulePath"
-        Settings = "$env:BHProjectPath\Build\PSScriptAnalyzerSettings.psd1"
+        Settings = "$env:BHProjectPath\.vscode\PSScriptAnalyzerSettings.psd1"
         Recurse = $true
     }
     $Analysis = Invoke-ScriptAnalyzer @AnalyzerParams

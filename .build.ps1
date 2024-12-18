@@ -177,31 +177,6 @@ task Clean init, {
 task Test init, {
     Write-Host -Object '[Task: Test]' -ForegroundColor Magenta
 
-
-Write-Host -Object "Current dir: $pwd" -ForegroundColor Yellow
-Write-Host -Object "BHProjectPath: $env:BHProjectPath" -ForegroundColor Yellow
-
-Get-ChildItem -Path $env:BHProjectPath | ForEach-Object { Write-Host -Object $_.FullName -ForegroundColor Yellow }
-
-# Check if the test path exists
-$testPath = "$env:BHProjectPath/tests"
-if (-Not (Test-Path -Path $testPath)) {
-    Write-Error "Test path '$testPath' does not exist."
-    exit 1
-}
-    # List the test files
-    $testFiles = Get-ChildItem -Path $testPath -Filter *.Tests.ps1
-    if ($testFiles.Count -eq 0) {
-        Write-Error "No test files found in '$testPath'."
-        exit 1
-    }
-    Write-Host -Object "Found test files:" -ForegroundColor Yellow
-    $testFiles | ForEach-Object { Write-Host -Object $_.FullName -ForegroundColor Yellow }
-
-
-
-
-
     # Run unit tests
     Import-Module Pester -Force
     $Config = [PesterConfiguration]@{
@@ -277,6 +252,12 @@ task Build init, clean, {
     Update-Metadata -Path $configurationFile -PropertyName moduleVersion -Value $currentVersion
     Step-ModuleVersion -Path $configurationFile -By $stepVersionBy
     $newVersion = (Import-PowerShellDataFile -Path $configurationFile).moduleVersion
+
+
+#########
+    Get-ChildItem -Path "$env:BHProjectPath\public" | ForEach-Object { Write-Host -Object $_.FullName -ForegroundColor Yellow }
+######
+
 
     # Build the module artifact
     $buildConfig = @{

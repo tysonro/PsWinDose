@@ -265,7 +265,7 @@ task Build init, clean, {
         Version = $newVersion
         OutputDirectory = "$env:BHBuildOutput"
         Target = 'CleanBuild'
-        CopyPaths = @('..\profile','public\Config')
+        CopyPaths = @('..\profile','Public\Config')
     }
     $build = Build-Module @buildConfig -Passthru
     Write-Host -Object "$env:BHProjectName [$newVersion] built at: $($build.ModuleBase)" -ForegroundColor DarkGreen

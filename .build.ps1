@@ -145,7 +145,8 @@ task init {
 
     # Sets build environment variables ($env:BH*)
     Import-Module BuildHelpers -Force
-    Set-BuildEnvironment -Force
+    #Set-BuildEnvironment -Force
+    Set-BuildEnvironment -GitPath git -Force
     Get-BuildEnvironment
     $script:configurationFile = (Join-Path -Path $PSScriptRoot -ChildPath '.\build\configuration.psd1')
 }
@@ -214,7 +215,7 @@ task Build init, clean, {
 
     # Determine the pipeline YAML file based on the build system
     switch ($env:BHBuildSystem) {
-        'GitHub' {
+        'GitHub Actions' {
             $yamlFile = "$env:BHProjectPath\.github\workflows\github-pipelines.yml"
             Write-Host -Object "Building from version [$currentVersion] on branch [$env:BHBranchName]"
         }
@@ -225,7 +226,7 @@ task Build init, clean, {
         default {
             Write-Host -Object "Building from version [$currentVersion] locally"
             switch ($buildConfig.pipelineType) {
-                'GitHub' {
+                'GitHub Actions' {
                     $yamlFile = "$env:BHProjectPath\.github\workflows\github-pipelines.yml"
                 }
                 'AzureDevOps' {
@@ -241,7 +242,7 @@ task Build init, clean, {
     # Get 'StepVersionBy' value from pipelines.yml
     $Yaml = Get-Content -Path $yamlFile | ConvertFrom-Yaml
     $StepVersionBy = switch ($buildConfig.pipelineType) {
-        'GitHub' { $Yaml.env.STEP_VERSION_BY }
+        'GitHub Actions' { $Yaml.env.STEP_VERSION_BY }
         'AzureDevOps' { $Yaml.variables.stepVersionBy }
         default { throw "Unknown pipeline type: $($buildConfig.pipelineType)" }
     }

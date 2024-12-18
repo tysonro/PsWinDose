@@ -177,7 +177,28 @@ task Clean init, {
 task Test init, {
     Write-Host -Object '[Task: Test]' -ForegroundColor Magenta
 
-write-host -object "current dir: $pwd" -ForegroundColor Yellow
+
+Write-Host -Object "Current dir: $pwd" -ForegroundColor Yellow
+Write-Host -Object "BHProjectPath: $env:BHProjectPath" -ForegroundColor Yellow
+
+# Check if the test path exists
+$testPath = "$env:BHProjectPath\tests"
+if (-Not (Test-Path -Path $testPath)) {
+    Write-Error "Test path '$testPath' does not exist."
+    exit 1
+}
+    # List the test files
+    $testFiles = Get-ChildItem -Path $testPath -Filter *.Tests.ps1
+    if ($testFiles.Count -eq 0) {
+        Write-Error "No test files found in '$testPath'."
+        exit 1
+    }
+    Write-Host -Object "Found test files:" -ForegroundColor Yellow
+    $testFiles | ForEach-Object { Write-Host -Object $_.FullName -ForegroundColor Yellow }
+
+
+
+
 
     # Run unit tests
     Import-Module Pester -Force

@@ -181,7 +181,7 @@ task Test init, {
     Import-Module Pester -Force
     $Config = [PesterConfiguration]@{
         Run = @{
-            Path = "$env:BHProjectPath/tests"
+            Path = 'tests'
         }
         TestResult = @{
             OutputFormat = 'NunitXml'
@@ -255,7 +255,7 @@ task Build init, clean, {
 
 
 #########
-    Get-ChildItem -Path "$env:BHProjectPath\public" | ForEach-Object { Write-Host -Object $_.FullName -ForegroundColor Yellow }
+    Get-ChildItem -Path "$env:BHProjectPath\source\public" | ForEach-Object { Write-Host -Object $_.FullName -ForegroundColor Yellow }
 ######
 
 

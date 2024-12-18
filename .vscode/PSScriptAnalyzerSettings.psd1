@@ -24,7 +24,9 @@
     Rules = @{}
 
     # List of rule names to exclude. If omitted, no rules are excluded.
-    ExcludeRules = @()
+    ExcludeRules = @(
+        'PSAvoidUsingWriteHost'
+    )
 
     Severity = @(
         #'Information'

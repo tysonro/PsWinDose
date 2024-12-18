@@ -1,4 +1,5 @@
-﻿function Set-PoshTheme {
+﻿# PSScriptAnalyzer -ExcludeRule PSAvoidUsingInvokeExpression
+function Set-PoshTheme {
 <#
 .SYNOPSIS
 Sets the oh-my-posh theme.
@@ -16,6 +17,7 @@ Set-PoshTheme -Theme Agnoster
 Get-PoshTheme -Theme Atomic | Set-PoshTheme
 #>
     [CmdletBinding(SupportsShouldProcess)]
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingInvokeExpression', '')]
     Param (
         [Parameter(Mandatory, ValueFromPipelineByPropertyName)]
         [ValidateNotNullOrEmpty()]

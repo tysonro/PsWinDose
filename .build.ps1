@@ -162,6 +162,12 @@ task Clean init, {
         Write-Host -Object "Cleaning Artifact Path: $env:BHBuildOutput"
         Remove-Item -Path "$env:BHBuildOutput" -Recurse -Force
     }
+
+    # Clean Test Results
+    if (Test-Path -Path "$env:BHProjectPath\tests\TestResults.Pester.xml") {
+        Write-Host -Object "Cleaning Test Results: $env:BHProjectPath\tests\TestResults.Pester.xml"
+        Remove-Item -Path "$env:BHProjectPath\tests\TestResults.Pester.xml" -Force
+    }
 }
 
 #
@@ -252,7 +258,7 @@ task Build init, clean, {
         Version = $newVersion
         OutputDirectory = "$env:BHBuildOutput"
         Target = 'CleanBuild'
-        CopyPaths = @('profile','public/Config')
+        CopyPaths = @('..\profile','public\Config')
     }
     $build = Build-Module @buildConfig -Passthru
     Write-Host -Object "$env:BHProjectName [$newVersion] built at: $($build.ModuleBase)" -ForegroundColor DarkGreen
@@ -264,8 +270,6 @@ task Build init, clean, {
 task Publish build, {
     Write-Host -Object '[Task: Publish]' -ForegroundColor Magenta
 
-    Write-Host -Object "Publishing version $env:BUILD_VERSION on branch $env:GIT_BRANCH"
-
-    # Publish the module artifact
-    #Publish-Module -Path $script:ArtifactPath -NuGetApiKey $env:NUGET_API_KEY
+    Write-Host "Under development"
+    pause
 }

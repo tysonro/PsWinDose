@@ -1,3 +1,4 @@
+# PSScriptAnalyzer -SuppressRule PSAvoidUsingInvokeExpression
 Function Install-PSPackageProvider {
 <#
 .SYNOPSIS
@@ -13,6 +14,7 @@ Checks if provider is present, otherwise installs the following Package Provider
 Install-PackageProviders -RepoName 'repo1' -RepoPath '\\server1\Repo1Path'
 #>
     [CmdLetBinding()]
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingInvokeExpression', '')]
     Param(
         $RepoName,
         $RepoPath,

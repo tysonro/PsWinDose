@@ -1,0 +1,45 @@
+name: Build and Publish Artifact
+
+# Trigger on push to the main branch
+on:
+  push:
+    branches:
+      - main
+
+# Define environment variables
+env:
+  DEFAULT_BRANCH: main
+  STEP_VERSION_BY: major # MAJOR | MINOR | PATCH (0.0.0)
+  BUILD_FOLDER_NAME: BuildOutput
+  REQUIRED_MODULES_DIRECTORY: RequiredModules
+  BUILD_ARTIFACT_NAME: PSModule
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build and Publish Artifact
+
+    steps:
+      # Checkout repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Run PowerShell bootstrap, test, and build script
+      - name: Bootstrap, Test, and Build
+        run: |
+          pwsh ./.build.ps1 -RequiredModulesDirectory ${{ env.REQUIRED_MODULES_DIRECTORY }} -Bootstrap
+        shell: pwsh
+
+      # Publish test results
+      - name: Publish Test Results
+        uses: actions/upload-artifact@v3
+        with:
+          name: TestResults
+          path: tests/TestResults.Pester.xml
+
+      # Publish build artifacts
+      - name: Publish Build Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ env.BUILD_ARTIFACT_NAME }}
+          path: ${{ env.BUILD_FOLDER_NAME }}

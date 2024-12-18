@@ -11,15 +11,15 @@ https://github.com/tysonro/PsWinDose
 [CmdletBinding()]
 param()
 
-. "$PSScriptRoot\PsWinDose\Private\Test-Elevation.ps1"
+. "$PSScriptRoot\source\Private\Test-Elevation.ps1"
 if (-not (Test-Elevation)) {
-    throw "Need to run as administrator"
+    Write-Error -Message "Need to run as administrator" -ErrorAction Stop
 }
 
 $scriptRoot = Split-Path -Parent $MyInvocation.MyCommand.Definition
 Write-Verbose "Script root: $scriptRoot"
 
-$buildArtifactPath = Join-Path -Path "$scriptRoot\BuildOutput\Artifacts" -ChildPath (Get-Item -Path $scriptRoot).baseName
+$buildArtifactPath = Join-Path -Path "$scriptRoot\BuildOutput" -ChildPath (Get-Item -Path $scriptRoot).baseName
 Write-Verbose "Build artifact path: $buildArtifactPath"
 
 $Ps5ModulePath = 'C:\Program Files\WindowsPowerShell\Modules'

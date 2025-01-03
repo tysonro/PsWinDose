@@ -4,5 +4,5 @@
 #>
 @{
     pipelineType = 'github actions'
-    moduleVersion = '2.0.2' # Dynamically set by the build script
+    moduleVersion = '2.0.3' # Dynamically set by the build script
 }

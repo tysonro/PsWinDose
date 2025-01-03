@@ -38,6 +38,9 @@ $null = New-PSDrive -Name TRO -PSProvider FileSystem -Root $tro -ErrorAction Sil
 # ALIASES #
 ###########
 
+# sudo alias
+Set-Alias -Name sudo -Value gsudo
+
 # rdp alias
 Set-Alias -Name rdp -Value Enter-PSSession
 

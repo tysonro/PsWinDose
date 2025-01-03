@@ -212,7 +212,6 @@ task Build init, clean, {
     # Get current version from module manifest (source)
     $currentVersion = (Import-PowerShellDataFile -Path $env:BHPSModuleManifest).ModuleVersion
 
-
     # Determine the pipeline YAML file based on the build system
     switch ($env:BHBuildSystem) {
         'GitHub Actions' {

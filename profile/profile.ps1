@@ -366,6 +366,7 @@ $Quotes = @(
     "The real test in life is not in keeping out of the rough, but in getting out after you are in. - Zig Ziglar"
     "Motion creates momentum, and momentum reveals opportunities that standing still never could."
     "Don't go fetch the egg from the chickens ass just yet!"
+    "Live like you will die tomorrow, learn like you will live forever!"
 
     # IT: Coding/DevOps/etc.
     "Automation applied to an efficient operation will magnify the efficiency. Automation applied to an inefficient operation will magnify the inefficiency. - Bill Gates"

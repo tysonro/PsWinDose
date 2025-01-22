@@ -1,49 +1,48 @@
-
-<#
-.SYNOPSIS
-    Invokes commands from Merill's GitHub page based on specified parameters.
-
-.DESCRIPTION
-    This script retrieves commands from a CSV file hosted on Merill's GitHub page and allows filtering based on alias, browser, command, or a custom filter.
-
-.PARAMETER Alias
-    Specifies one or more aliases to filter the commands.
-
-.PARAMETER Browser
-    Specifies the browser to use. Valid values are 'Brave', 'Chrome', 'FireFox', and 'MSEdge'.
-
-.PARAMETER Command
-    Specifies one or more commands to filter the commands.
-
-.PARAMETER Filter
-    Specifies a custom filter to apply when retrieving commands. Default is an empty string which retrieves all commands.
-
-.EXAMPLE
-    Invoke-CmdMS -Alias "exampleAlias"
-    Retrieves and displays commands with the specified alias.
-
-.EXAMPLE
-    Invoke-CmdMS -Browser "Chrome"
-    Retrieves and displays commands for the Chrome browser.
-
-.EXAMPLE
-    Invoke-CmdMS -Command "exampleCommand"
-    Retrieves and displays commands with the specified command.
-
-.EXAMPLE
-    Invoke-CmdMS -Filter "exampleFilter"
-    Retrieves and displays commands that match the specified filter.
-
-.NOTES
-    Author: Harm Veenstra
-    GitHub: https://github.com/HarmVeenstra/Powershellisfun/blob/main/Open%20links%20from%20the%20cmd.ms%20website/Invoke-CmdMS.ps1
-    Blog: https://powershellisfun.com/2024/12/12/powershell-function-for-the-cmd-ms-website/
-
-.LINK
-    Merrill's utility: https://cmd.ms/
-    https://github.com/merill/cmd
-#>
 function Invoke-CmdMS {
+    <#
+    .SYNOPSIS
+        Invokes commands from Merill's GitHub page based on specified parameters.
+
+    .DESCRIPTION
+        This script retrieves commands from a CSV file hosted on Merill's GitHub page and allows filtering based on alias, browser, command, or a custom filter.
+
+    .PARAMETER Alias
+        Specifies one or more aliases to filter the commands.
+
+    .PARAMETER Browser
+        Specifies the browser to use. Valid values are 'Brave', 'Chrome', 'FireFox', and 'MSEdge'.
+
+    .PARAMETER Command
+        Specifies one or more commands to filter the commands.
+
+    .PARAMETER Filter
+        Specifies a custom filter to apply when retrieving commands. Default is an empty string which retrieves all commands.
+
+    .EXAMPLE
+        Invoke-CmdMS -Alias "exampleAlias"
+        Retrieves and displays commands with the specified alias.
+
+    .EXAMPLE
+        Invoke-CmdMS -Browser "Chrome"
+        Retrieves and displays commands for the Chrome browser.
+
+    .EXAMPLE
+        Invoke-CmdMS -Command "exampleCommand"
+        Retrieves and displays commands with the specified command.
+
+    .EXAMPLE
+        Invoke-CmdMS -Filter "exampleFilter"
+        Retrieves and displays commands that match the specified filter.
+
+    .NOTES
+        Author: Harm Veenstra
+        GitHub: https://github.com/HarmVeenstra/Powershellisfun/blob/main/Open%20links%20from%20the%20cmd.ms%20website/Invoke-CmdMS.ps1
+        Blog: https://powershellisfun.com/2024/12/12/powershell-function-for-the-cmd-ms-website/
+
+    .LINK
+        Merrill's utility: https://cmd.ms/
+        https://github.com/merill/cmd
+    #>
     [CmdletBinding(DefaultParameterSetName = 'Filter')]
     param (
         [Parameter(Mandatory = $false, ParameterSetName = ('Alias'))][string[]]$Alias,

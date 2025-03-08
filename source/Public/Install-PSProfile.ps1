@@ -46,4 +46,9 @@ about_Profiles: https://learn.microsoft.com/en-us/powershell/module/microsoft.po
         # Get and set profile content
         Set-Content -Path $profilePath -Value $profileContent -Force
     }
+
+    # Copy the inspirationalQuotes.psd1 file to root path in pswindose.settings.json
+    ## profile.ps1 is hardcoded to look for this file in the root path
+    $settings = Get-PsWinDoseSetting
+    Copy-Item -Path "$PSScriptRoot/config/inspirationalQuotes.psd1" -Destination $settings.rootPath -Force
 }

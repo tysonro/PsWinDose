@@ -1,6 +1,11 @@
 ﻿# To Do List
 
+Boxstarter: https://github.com/Orcomp/Boxstarter
+
+Setupscript: https://github.com/Disassembler0/Win10-Initial-Setup-Script/tree/master
+
 Draw inspiration from: https://github.com/SamErde/PSPreworkout
+
 
 
 SPECTRE CONSOLE (TUI)

@@ -87,66 +87,72 @@ Windows Terminal Tips and Tricks: https://learn.microsoft.com/en-us/windows/term
     [cmdletbinding(SupportsShouldProcess)]
     param()
 
+    ######################
+    # Install Nerd Fonts #
+    ######################
+
+    # ToDo: Turn this into a function:
+#    Install-CustomFonts
 
     # Install Nerd Fonts: CascaydiaCove
-    $fontsUrl = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.1/CascadiaCode.zip"
+    $nfVersion = '3.3.0'
+    $fontsUrl = "https://github.com/ryanoasis/nerd-fonts/releases/download/v$nfVersion/CascadiaCode.zip"
     $fontsZipPath = "$PWD\Fonts.zip"
 
-    # Download the fonts zip file
-    $download = Invoke-WebRequest -Uri $fontsUrl -OutFile $fontsZipPath
-    $download
+    # Check if the font is already installed
+    #$fontName = "CaskaydiaCove"
+    #$fontsFolder = [System.Environment]::GetFolderPath("Fonts")
+    #Get-ChildItem -Path $fontsFolder -Filter "*$fontName*"
+    #$fontEnvInstalled = Test-Path "$fontsFolder\*$fontName*.ttf"
+    ##$fontEnvInstalled = Test-Path "$fontsFolder\$fontName Nerd Font Complete.ttf"
+#
+    ## Check if the font is already installed using the registry
+    #$fontName = "Cascadia"
+    #$fontRegistryPath = "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts"
+    #$fonts = Get-ItemProperty -Path $fontRegistryPath
+    #$fontRegInstalled = $fonts.PSObject.Properties | Where-Object { $_.Name -like "*$fontName*" }
 
-    # Extract the fonts from the zip file
-    $fontsExtractPath = "$PWD\Fonts"
-    Expand-Archive -Path $fontsZipPath -DestinationPath $fontsExtractPath -Force
+    if ($fontEnvInstalled -and $fontRegInstalled) {
+        Write-PSFMessage -Level Important -Message "Font '$fontName' is already installed. Skipping installation."
+    } else {
+        # Download the fonts zip file
+        Write-PSFMessage -Level Important -Message "Downloading and installing font: $fontName"
+        $download = Invoke-WebRequest -Uri $fontsUrl -OutFile $fontsZipPath
+        $download
 
-    # Wait for the extraction to complete
-    Start-Sleep -Seconds 2
+        # Extract the fonts from the zip file
+        $fontsExtractPath = "$PWD\Fonts"
+        Expand-Archive -Path $fontsZipPath -DestinationPath $fontsExtractPath -Force
 
-    # Install the fonts by copying them to the Windows Fonts folder
-    $shellApp = New-Object -ComObject Shell.Application
-    $shellNamespace = $shellApp.Namespace(0x14) # Fonts folder
-    $fontFiles = Get-ChildItem -Path $fontsExtractPath -Include '*.ttf','*.ttc','*.otf' -Recurse
+        # Wait for the extraction to complete
+        Start-Sleep -Seconds 2
 
-    foreach ($fontFile in $fontFiles) {
-        #$fontFullName = $fontFile.FullName
-        $shellNamespace.CopyHere($fontFile.FullName, 0x10) # Copy font to the Fonts folder
+        # Install the fonts by copying them to the Windows Fonts folder
+        $shellApp = New-Object -ComObject Shell.Application
+        $shellNamespace = $shellApp.Namespace(0x14) # Fonts folder
+        $fontFiles = Get-ChildItem -Path $fontsExtractPath -Include '*.ttf','*.ttc','*.otf' -Recurse
+
+        foreach ($fontFile in $fontFiles) {
+            #$fontFullName = $fontFile.FullName
+            $shellNamespace.CopyHere($fontFile.FullName, 0x10) # Copy font to the Fonts folder
+        }
     }
+
+
 }
 
 
 
-# NOTE (tyson):: This needs to be set in the settings.json file of the windows terminal:
-# You need to set the "Caskaydia..." fonts as the default font in the settings.json file of the windows terminal
-# Copy custom settings.json file to the windows terminal settings.json file
-# Define the paths to your custom settings.json file and the default settings.json file
-#$customSettingsPath = "path\to\your\custom\settings.json"
-#$defaultSettingsPath = "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
-    # terminal settings file path
-#                       "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
 
-# Make a backup of the original settings.json file
-#Copy-Item -Path $defaultSettingsPath -Destination "${defaultSettingsPath}.backup"
 
-# Replace the default settings.json file with your custom one
-#Copy-Item -Path $customSettingsPath -Destination $defaultSettingsPath -Force
+
+###########################
+# VSCODE  SETTINGS (JSON) #
+###########################
+
 <#
-    "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-    "profiles":
-    {
-        "defaults":
-        {
-            "font":
-            {
-                "face": "CaskaydiaCove Nerd Font Mono"
-            }
-        },
-
+    1. Copy the vscode.settings.json into the vscode settings json file (Shift+Ctrl+P > Open User Settings (JSON))
 #>
-
-
-
-
 
 
 
@@ -176,7 +182,46 @@ Windows Terminal Tips and Tricks: https://learn.microsoft.com/en-us/windows/term
 
 
 
+############################
+# TERMINAL SETTINGS (JSON) #
+############################
 
+<#
+1. Open Windows Terminal Settings
+2. Click on the "Open JSON file" button (lower left)
+3. Copy the below JSON
+
+
+This needs to be set in the settings.json file of the windows terminal:
+    You need to set the "Caskaydia..." fonts as the default font in the settings.json file of the windows terminal
+    Copy custom settings.json file to the windows terminal settings.json file
+    Define the paths to your custom settings.json file and the default settings.json file
+
+#>
+
+#$customSettingsPath = "path\to\your\custom\settings.json"
+#$defaultSettingsPath = "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
+    # terminal settings file path
+#                       "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
+
+# Make a backup of the original settings.json file
+#Copy-Item -Path $defaultSettingsPath -Destination "${defaultSettingsPath}.backup"
+
+# Replace the default settings.json file with your custom one
+#Copy-Item -Path $customSettingsPath -Destination $defaultSettingsPath -Force
+<#
+    "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+    "profiles":
+    {
+        "defaults":
+        {
+            "font":
+            {
+                "face": "CaskaydiaCove Nerd Font Mono"
+            }
+        },
+
+#>
 
 
 

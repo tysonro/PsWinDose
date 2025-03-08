@@ -1,7 +1,23 @@
 ﻿{
-    "editor.fontFamily": "CaskaydiaCove Nerd Font Mono, Consolas, 'Courier New', monospace",
+    "window.zoomLevel": 2,
+    "workbench.iconTheme": "vscode-icons",
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.fontFamily": "CaskaydiaCove Nerd Font Mono",
     "editor.fontLigatures": true,
     "terminal.integrated.fontFamily": "CaskaydiaCove Nerd Font Mono",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "bicep.enableSurveys": false,
+    "editor.accessibilitySupport": "off",
+    "accessibility.signals.lineHasError": {
+        "sound": "off"
+    },
+    "powershell.pester.codeLens": false,
+    "github.copilot.editor.enableAutoCompletions": true,
+    "security.allowedUNCHosts": [
+        "bdmp.com"
+    ],
+    "workbench.colorTheme": "Atom One Dark",
+    "window.title": "${separator}${activeRepositoryName}${separator}${activeEditorShort}${separator}${activeRepositoryBranchName}",
     "github.copilot.chat.experimental.codeGeneration.instructions": [
         {
             "file": "code-style.md"

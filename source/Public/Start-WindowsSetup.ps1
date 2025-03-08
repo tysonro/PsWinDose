@@ -1,77 +1,59 @@
 ﻿function Start-WindowsSetup {
 <#
 .SYNOPSIS
-Tyson's Win10/11 provisioning script
+Tyson's Win 11 provisioning script
 
 .DESCRIPTION
-Customizes a windows 10/11 device: all the apps and settings I like.
+Customizes a windows 11 device: all the apps and settings I like.
 
-Note: Must run as administrator
+Note: Must run as administrator to bootstrap
 
 .EXAMPLE
 PS> .\Start-WindowsSetup.ps1 -RepoName 'repo1' -RepoPath '\\server1\Repo1Path'
 #>
-    [CmdletBinding(SupportsShouldProcess)]
+    [CmdletBinding()]
+    # exclude shouldprocess
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseShouldProcessForStateChangingFunctions', '')]
     param (
-        [Parameter(Mandatory)]
-        $RepoName,
-        [Parameter(Mandatory)]
-        $RepoPath
+        [switch]$AddPrivateRepo
     )
-
-    Import-Module PSFramework
-    Write-PSFMessage -Level Verbose "Starting Windows Setup"
-
-        # I think I need to find out where its necessary to run as admin and maybe just elevate for that portion (meaning, separate the logic out for admin functions).
+    # I think I need to find out where its necessary to run as admin and maybe just elevate for that portion (meaning, separate the logic out for admin functions).
     # I'd rather have it mostly run in the user context. Winget for example will prompt for admin creds when a software needs it. (by default)
     # Example, the package providers probably do need admin rights, but i should be installing those for ALL users. Modules should be current user only.
+    # So, I think I need elevation to install winget? Can i just have gsudo be a pre-req, install that and then use that to elevate for just the winget install?
+    # that way the rest will be installed to user scope. Why isn't winget just part of win11 now?
     if (-not (Test-Elevation)) {
         throw "Need to run as administrator"
     }
 
-    if (-not $env:PsWinDose) {
-        Initialize-PsWinDose
+    # Initialize PsWinDose (bootstrap)
+    Initialize-PsWinDose
+
+    # Add private repository
+    if ($AddPrivateRepo) {
+        Add-PSPrivateRepository
     }
 
-    if ($pscmdlet.ShouldProcess($repoName)) {
-        # Bootstrap and install package providers
-        Install-PSPackageProvider -RepoName $RepoName -RepoPath $RepoPath -AddPrivateRepo
+    # Install default PowerShell Modules
+    Install-PSModule -Default
 
-        <# Add to bootstrap phase:
-            - Install winget
-            - Install chocolatey
-            - Install Posh 7.x
-            - Install these modules: PSFramework, Microsoft.PowerShell.ConsoleGuiTools
-        #>
-
-        # Install PowerShell Modules
-        Install-PSModule
-
-        # Install software
-        ## Needs winget installed first!!!!
-        Install-Software
+    # Install default software
+    Install-Software -Default
 
 
-        # Install VSCode Extensions
-        ## I'm using vscode profiles now so maybe i need to figure out how to export/import those over...?
-        #Install-VSCodeExtension
+    # Install VSCode Extensions
+    ## I'm using vscode profiles now so maybe i need to figure out how to export/import those over...?
+    #Install-VSCodeExtension
 
+    # Set up PowerShell profile
+    Install-PSProfile
 
+    # Set up custom terminal
+    #Set-CustomTerminal
 
-        #NOTE: Wait until I have it in a module, it'll be easier to reference the profile.ps1 script with $PSScriptRoot
-        # Set up PowerShell profile
-        #Install-PSProfile
+    # Remove unwanted apps
+    #Remove-Software
 
-        # Set up custom terminal
-        #Set-CustomTerminal
-
-        # Remove unwanted apps
-        #Remove-Software
-
-        # dell monitor management
-
-
-        # Add right click context menu to open files and folders with VS Code
-        #Add-VSCodeRightClick
-    }
+    # Add right click context menu to open files and folders with VS Code
+    Add-VSCodeRightClick
 }

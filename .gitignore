@@ -1,3 +1,5 @@
 # Build output
 /BuildOutput/*
 /tests/TestResults.Pester.xml
+/fonts.zip
+/fonts

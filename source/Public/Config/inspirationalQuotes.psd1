@@ -97,6 +97,8 @@
         "Don't go fetch the egg from the chickens ass just yet!"
         "Live like you will die tomorrow, learn like you will live forever!"
         "The successful learn vicariously; the foolish insist on firsthand pain."
+        "The most powerful productivity tool ever invented is simply the word 'no'."
+        "The single most effective habit is the willingness to change your own mind."
 
         # IT: Coding/DevOps/etc.
         "Automation applied to an efficient operation will magnify the efficiency. Automation applied to an inefficient operation will magnify the inefficiency. - Bill Gates"

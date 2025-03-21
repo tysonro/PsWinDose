@@ -202,7 +202,7 @@
         },
         @{
             Name        = 'SysInternals Suite';
-            Id          = 'sysinternals';
+            Id          = 'Microsoft.sysinternals';
             Description = 'Microsoft SysInternals Suite';
             Default     = $false
         },

@@ -104,3 +104,43 @@ Move-Item -Path "C:\Temp\Microsoft.Graph.Extensions-main" -Destination "$($env:P
 # Import the module
 Import-Module Microsoft.Graph.Extensions
 ```
+
+## Download profile
+
+borrowed from: <https://gist.github.com/MSAdministrator/e9d104e3320a02a650916865a677dd4b>
+
+```powershell
+function Invoke-DownloadPSProfile {
+    #Download PowerShell Profile
+
+    $clnt = new-object System.Net.WebClient
+    $url = 'https://gist.githubusercontent.com/MSAdministrator/bbb549cee70d80d3b008bb173d84a39f/raw/e39171771a14d8c7e7026fbe09ed618b2bbf3dcc/Microsoft.PowerShell_profile.ps1'
+
+    $Folder = Split-Path $PROFILE
+    $File = Split-Path -Leaf $url
+
+    $OutFile = Join-Path $Folder $File
+    Invoke-WebRequest -Uri $url -OutFile $OutFile
+
+
+    #DOwnload PowerShell ISE Profile
+
+    $clnt = new-object System.Net.WebClient
+    $url = 'https://gist.githubusercontent.com/MSAdministrator/38711ca0ba02f2a0c0cc715c84c28802/raw/229b795327b59c3d3a3271c4e6868274078331ad/Microsoft.PowerShellISE_profile.ps1'
+
+    $Folder = Split-Path $PROFILE
+    $File = Split-Path -Leaf $url
+
+    $OutFile = Join-Path $Folder $File
+    Invoke-WebRequest -Uri $url -OutFile $OutFile
+}
+```
+
+
+## FastFetch
+
+<https://github.com/fastfetch-cli/fastfetch>
+
+```powershell
+winget install fastfetch
+```

@@ -99,6 +99,7 @@
         "The successful learn vicariously; the foolish insist on firsthand pain."
         "The most powerful productivity tool ever invented is simply the word 'no'."
         "The single most effective habit is the willingness to change your own mind."
+        "A smooth sea never made a skilled sailor"
 
         # IT: Coding/DevOps/etc.
         "Automation applied to an efficient operation will magnify the efficiency. Automation applied to an inefficient operation will magnify the inefficiency. - Bill Gates"

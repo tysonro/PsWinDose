@@ -100,6 +100,7 @@
         "The most powerful productivity tool ever invented is simply the word 'no'."
         "The single most effective habit is the willingness to change your own mind."
         "A smooth sea never made a skilled sailor"
+        "To know what you are going to draw, you have to begin drawing. - Picasso"
 
         # IT: Coding/DevOps/etc.
         "Automation applied to an efficient operation will magnify the efficiency. Automation applied to an inefficient operation will magnify the inefficiency. - Bill Gates"

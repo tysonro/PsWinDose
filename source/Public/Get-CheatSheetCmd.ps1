@@ -50,6 +50,7 @@ Returns all of the commands and descriptions that match the search term
         format fs=fat32 quick
         "
         "klist" = "Lists all kerberos tickets"
+        "dfsutil diag viewdfspath \\domain.local\dfsroot\share" = "DFS Path Diagnostic Tool. Use this to reveal the source of a DFS path."
     }
 
     # Create a table of the commands and descriptions (an array of objects)

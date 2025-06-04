@@ -46,6 +46,8 @@ Set-Alias -Name sudo -Value gsudo
 # notepadd++
 Set-Alias -Name n+ -Value "C:\Program Files\Notepad++\notepad++.exe"
 
+Set-Alias -Name cicommit -Value "git commit -a --amend --no-edit && git push --force-with-lease"
+
 #######################
 # CUSTOMIZE THE SHELL #
 #######################

@@ -40,9 +40,6 @@ Import-Module posh-git, terminal-icons
 # sudo alias
 Set-Alias -Name sudo -Value gsudo
 
-# rdp alias
-#Set-Alias -Name rdp -Value Enter-PSSession
-
 # notepadd++
 Set-Alias -Name n+ -Value "C:\Program Files\Notepad++\notepad++.exe"
 

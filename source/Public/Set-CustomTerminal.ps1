@@ -1,161 +1,107 @@
 function Set-CustomTerminal {
-<#
-.SYNOPSIS
-Sets up my custom terminal settings
+    <#
+    .SYNOPSIS
+        Sets up my custom terminal settings
 
-.DESCRIPTION
-Central source for my powershell profile. Update here and then use the function to update the profile.ps1 file on the current device.
+    .DESCRIPTION
+        Central source for my powershell profile. Update here and then use the function to update the profile.ps1 file on the current device.
 
-# I recommend to put this in your own Powershell profile, so it's loaded by default
-New-Variable -Name Repos -Value 'D:/Repos' -Scope Global -Force
-$null = New-PSDrive -Name AZ -PSProvider FileSystem -Root $Repos -EA 0
-Set-Location -Path AZ:
-Import-Module oh-my-posh
-Set-PoshPrompt -Theme $PoshPromptPath
-Import-Module posh-git
-Import-Module Terminal-Icons
-Import-Module Az.Accounts
-Import-Module -Name $Repos/ADF/ADF/release-az/azSet.psm1 -Scope Global -Force
+    .EXAMPLE
+        Set-CustomTerminal
 
-   - Customizing my terminal prompt: https://www.jondjones.com/tactics/productivity/customise-your-powershell-prompt-like-a-boss/
-        - oh-my-posh, nerdfont, posh-git
+    .NOTES
+        # I recommend to put this in your own Powershell profile, so it's loaded by default
+        New-Variable -Name Repos -Value 'D:/Repos' -Scope Global -Force
+        $null = New-PSDrive -Name AZ -PSProvider FileSystem -Root $Repos -EA 0
+        Set-Location -Path AZ:
+        Import-Module oh-my-posh
+        Set-PoshPrompt -Theme $PoshPromptPath
+        Import-Module posh-git
+        Import-Module Terminal-Icons
+        Import-Module Az.Accounts
+        Import-Module -Name $Repos/ADF/ADF/release-az/azSet.psm1 -Scope Global -Force
 
-.NOTES
-TROUBLESHOOTING:
-# Get version of oh-my-posh
-oh-my-posh version
+        - Customizing my terminal prompt: https://www.jondjones.com/tactics/productivity/customise-your-powershell-prompt-like-a-boss/
+                - oh-my-posh, nerdfont, posh-git
 
-# Get install location
-Get-Command oh-my-posh
+        TROUBLESHOOTING:
+        # Get version of oh-my-posh
+        oh-my-posh version
 
-https://ohmyposh.dev/docs/command
-		- CustomTerminal: https://www.youtube.com/watch?v=5-aK2_WwrmM
-		- vscode tutorial: https://www.youtube.com/watch?v=ZqEsWxzv8yg
-		- custom terminal with scott hanselman: https://www.youtube.com/watch?v=oHhiMf_6exY
-		- https://www.hanselman.com/blog/my-ultimate-powershell-prompt-with-oh-my-posh-and-the-windows-terminal
+        # Get install location
+        Get-Command oh-my-posh
 
-- Terminal themes: https://windowsterminalthemes.dev/
-	- When you click "get theme", it copies the json config to your clipboard (more info here: https://towardsdatascience.com/new-windows-terminal-the-best-you-can-have-9945294707e7)
+        https://ohmyposh.dev/docs/command
+                - CustomTerminal: https://www.youtube.com/watch?v=5-aK2_WwrmM
+                - vscode tutorial: https://www.youtube.com/watch?v=ZqEsWxzv8yg
+                - custom terminal with scott hanselman: https://www.youtube.com/watch?v=oHhiMf_6exY
+                - https://www.hanselman.com/blog/my-ultimate-powershell-prompt-with-oh-my-posh-and-the-windows-terminal
 
-
-- Community prompts with oh my posh:
-	- https://gist.github.com/DeadlyBrad42/ab69aedcd9741df3151b
-
-Terminal Opacaity:
-    - Open settings > open json file
-    - find the defaults section under profiles and add this code:
-
-    "defaults":
-{
-    // Put settings here that you want to apply to all profiles.
-    "useAcrylic": true,
-    "acrylicOpacity": 0.65
-},
-
-OR
-
-    "defaults":
-{
-    // Put settings here that you want to apply to all profiles.
-    "useAcrylic": false,
-    "Opacity": 0.65
-},
+        - Terminal themes: https://windowsterminalthemes.dev/
+            - When you click "get theme", it copies the json config to your clipboard (more info here: https://towardsdatascience.com/new-windows-terminal-the-best-you-can-have-9945294707e7)
 
 
-Items left to do:
+        - Community prompts with oh my posh:
+            - https://gist.github.com/DeadlyBrad42/ab69aedcd9741df3151b
 
-- Set terminal as the default terminal application (this is done via the terminal settings.json)
+        Terminal Opacaity:
+            - Open settings > open json file
+            - find the defaults section under profiles and add this code:
 
+            "defaults":
+        {
+            // Put settings here that you want to apply to all profiles.
+            "useAcrylic": true,
+            "acrylicOpacity": 0.65
+        },
 
-.EXAMPLE
-Set-CustomTerminal
+        OR
 
+            "defaults":
+        {
+            // Put settings here that you want to apply to all profiles.
+            "useAcrylic": false,
+            "Opacity": 0.65
+        },
 
-.LINK
-https://ohmyposh.dev/
-https://www.nerdfonts.com/
-https://github.com/devblackops/Terminal-Icons
+        Items left to do:
 
-Troubleshooting Terminal-Icons: https://gist.github.com/markwragg/6301bfcd56ce86c3de2bd7e2f09a8839
+        - Set terminal as the default terminal application (this is done via the terminal settings.json)
 
-How to make the ultimate Terminal Prompt on Windows 11 [Scott Hanselman]:
- - https://www.youtube.com/watch?v=VT2L1SXFq9U
- - https://www.hanselman.com/blog/my-ultimate-powershell-prompt-with-oh-my-posh-and-the-windows-terminal
+    .LINK
+        https://ohmyposh.dev/
+        https://www.nerdfonts.com/
+        https://github.com/devblackops/Terminal-Icons
 
-Windows Terminal Tips and Tricks: https://learn.microsoft.com/en-us/windows/terminal/tips-and-tricks
-#>
+        Troubleshooting Terminal-Icons: https://gist.github.com/markwragg/6301bfcd56ce86c3de2bd7e2f09a8839
+
+        How to make the ultimate Terminal Prompt on Windows 11 [Scott Hanselman]:
+        - https://www.youtube.com/watch?v=VT2L1SXFq9U
+        - https://www.hanselman.com/blog/my-ultimate-powershell-prompt-with-oh-my-posh-and-the-windows-terminal
+
+        Windows Terminal Tips and Tricks: https://learn.microsoft.com/en-us/windows/terminal/tips-and-tricks
+    #>
     [cmdletbinding(SupportsShouldProcess)]
     param()
 
-    ######################
-    # Install Nerd Fonts #
-    ######################
+    # Get the PsWinDose settings (pswindose.settings.json)
+    $Settings = Get-PsWinDoseSetting
 
-    # ToDo: Turn this into a function:
-#    Install-CustomFonts
-
-    # Install Nerd Fonts: CascaydiaCove
-    $nfVersion = '3.3.0'
-    $fontsUrl = "https://github.com/ryanoasis/nerd-fonts/releases/download/v$nfVersion/CascadiaCode.zip"
-    $fontsZipPath = "$PWD\Fonts.zip"
-
-    # Check if the font is already installed
-    #$fontName = "CaskaydiaCove"
-    #$fontsFolder = [System.Environment]::GetFolderPath("Fonts")
-    #Get-ChildItem -Path $fontsFolder -Filter "*$fontName*"
-    #$fontEnvInstalled = Test-Path "$fontsFolder\*$fontName*.ttf"
-    ##$fontEnvInstalled = Test-Path "$fontsFolder\$fontName Nerd Font Complete.ttf"
-#
-    ## Check if the font is already installed using the registry
-    #$fontName = "Cascadia"
-    #$fontRegistryPath = "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts"
-    #$fonts = Get-ItemProperty -Path $fontRegistryPath
-    #$fontRegInstalled = $fonts.PSObject.Properties | Where-Object { $_.Name -like "*$fontName*" }
-
-    if ($fontEnvInstalled -and $fontRegInstalled) {
-        Write-PSFMessage -Level Important -Message "Font '$fontName' is already installed. Skipping installation."
-    } else {
-        # Download the fonts zip file
-        Write-PSFMessage -Level Important -Message "Downloading and installing font: $fontName"
-        $download = Invoke-WebRequest -Uri $fontsUrl -OutFile $fontsZipPath
-        $download
-
-        # Extract the fonts from the zip file
-        $fontsExtractPath = "$PWD\Fonts"
-        Expand-Archive -Path $fontsZipPath -DestinationPath $fontsExtractPath -Force
-
-        # Wait for the extraction to complete
-        Start-Sleep -Seconds 2
-
-        # Install the fonts by copying them to the Windows Fonts folder
-        $shellApp = New-Object -ComObject Shell.Application
-        $shellNamespace = $shellApp.Namespace(0x14) # Fonts folder
-        $fontFiles = Get-ChildItem -Path $fontsExtractPath -Include '*.ttf','*.ttc','*.otf' -Recurse
-
-        foreach ($fontFile in $fontFiles) {
-            #$fontFullName = $fontFile.FullName
-            $shellNamespace.CopyHere($fontFile.FullName, 0x10) # Copy font to the Fonts folder
-        }
+    if ($PSCmdlet.ShouldProcess("Custom Terminal Setup", "Install Nerd Fonts and apply settings")) {
+        # Install Nerd Fonts
+        Install-CustomFont -Path $Settings.softwareDestinationPath
     }
-
-
 }
-
-
-
-
 
 
 ###########################
 # VSCODE  SETTINGS (JSON) #
 ###########################
-
 <#
+    NOTE: vscode.settings.json should get updated with wiht my custom vscode Profile. As long as I import my vscode profile it should already have this set for vscode.
+
     1. Copy the vscode.settings.json into the vscode settings json file (Shift+Ctrl+P > Open User Settings (JSON))
 #>
-
-
-
 
 # VSCODE Settings (settings.json)
 # https://ohmyposh.dev/docs/installation/fonts
@@ -163,22 +109,12 @@ Windows Terminal Tips and Tricks: https://learn.microsoft.com/en-us/windows/term
 #path: $env:AppData\Code\User\settings.json
 # update font (in settings.json) - settings > Font > open json:
 #$settings = @"
-#    "editor.fontFamily": "CaskaydiaCove Nerd Font Mono, Consolas, 'Courier New', monospace",
-#    "editor.fontLigatures": true
 #    "editor.fontFamily": "CaskaydiaCove Nerd Font Mono",
 #    "editor.fontLigatures": true,
 #    "terminal.integrated.fontFamily": "CaskaydiaCove Nerd Font Mono",
 #"@
 ## Replace the default settings.json file with your custom one
 #Set-Content -Path "$env:AppData\Code\User\settings.json" -Value $settings
-
-
-
-#integrated font family (search in settings)
-#CaskaydiaCove Nerd Font Mono, Consolas, 'Courier New', monospace
-
-
-
 
 
 

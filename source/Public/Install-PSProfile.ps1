@@ -1,25 +1,25 @@
 function Install-PSProfile {
-<#
-.SYNOPSIS
-Sets up my PowerShell profile
+    <#
+    .SYNOPSIS
+        Sets up my PowerShell profile
 
-.DESCRIPTION
-Installs my PowerShell profile.ps1 file to the current user's profile directory. This profile is what will be applied when starting a new PowerShell session. This currently works for both 5.1 and 7.x versions of PowerShell.
+    .DESCRIPTION
+        Installs my PowerShell profile.ps1 file to the current user's profile directory. This profile is what will be applied when starting a new PowerShell session. This currently works for both 5.1 and 7.x versions of PowerShell.
 
-.EXAMPLE
-Install-PSProfile
+    .EXAMPLE
+        Install-PSProfile
 
-.NOTES
-Steve Lee's Profile.ps1:
-	- https://gist.github.com/SteveL-MSFT/a208d2bd924691bae7ec7904cab0bd8e
+    .NOTES
+        Steve Lee's Profile.ps1:
+            - https://gist.github.com/SteveL-MSFT/a208d2bd924691bae7ec7904cab0bd8e
 
-    - Another good blog on using a GIST: https://xkln.net/blog/securely-synchronizing-powershell-profiles-across-multiple-computers/
+            - Another good blog on using a GIST: https://xkln.net/blog/securely-synchronizing-powershell-profiles-across-multiple-computers/
 
-.LINK
-Customize your Shell: https://learn.microsoft.com/en-us/powershell/scripting/learn/shell/creating-profiles?view=powershell-7.3
+    .LINK
+        Customize your Shell: https://learn.microsoft.com/en-us/powershell/scripting/learn/shell/creating-profiles?view=powershell-7.3
 
-about_Profiles: https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7.3
-#>
+        About_Profiles: https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7.3
+    #>
     [cmdletbinding()]
     param()
 
@@ -38,9 +38,11 @@ about_Profiles: https://learn.microsoft.com/en-us/powershell/module/microsoft.po
         $env:UserProfile + "\Documents\WindowsPowerShell\Microsoft.VSCode_profile.ps1" #5.1 vscode
     )
 
+    Write-PSFMessage -Level Important -Message "Installing/Overwriting PowerShell profile"
+
     foreach ($profilePath in $paths) {
         # Overwrite profile directory and file
-        Write-Warning "Overwriting PowerShell Profile: $profilePath"
+        Write-Verbose "Overwriting PowerShell Profile: $profilePath"
         New-Item -Path $profilePath -ItemType File -Force | Out-Null
 
         # Get and set profile content

@@ -1,5 +1,5 @@
 ﻿function Initialize-PsWinDose {
-<#
+    <#
     .SYNOPSIS
         Initialize PsWinDose
 
@@ -14,8 +14,8 @@
         Initialize-PsWinDose
 
     .EXAMPLE
-        Inistialize-PsWinDose -Force
-#>
+        Initialize-PsWinDose -Force
+    #>
     [CmdletBinding()]
     Param(
         [switch]$Force
@@ -32,12 +32,12 @@
         Remove-Item -Path $Settings.rootPath -Recurse -Force
     }
 
-    # MAIN CODE BLOCK: If root path doesn't exist, initialize/bootstrap pswindose environment
+    # If root path doesn't exist, initialize/bootstrap pswindose environment
     if (-not (Test-Path -Path $Settings.rootPath)) {
-        Write-PSFMessage -Level Important "Initializing PsWinDose module..."
+        Write-Verbose "Initializing PsWinDose module..."
 
         # Ensure PSFramework is installed for logging and consoleGuiTools for advanced TUI's
-        Write-PSFMessage -Level Important "Checking module dependencies..."
+        Write-Verbose "Checking module dependencies..."
         Test-ModuleDependency -Name 'PSFramework', 'Microsoft.PowerShell.ConsoleGuiTools' -ErrorAction Stop
         Import-Module PSFramework -Force
 
@@ -75,7 +75,7 @@
             Add-AppxPackage $latestWingetMsixBundle
             Remove-Item -Path "./$latestWingetMsixBundle"
         } else {
-            Write-PSFMessage -Level Important -Message "Winget is already installed."
+            Write-PSFMessage -Level Important -Message "Winget is already installed"
         }
 
         # Bootstrap and install package providers
@@ -96,6 +96,6 @@
         #    [System.Environment]::SetEnvironmentVariable('PsWinDose', $Settings.rootPath, [System.EnvironmentVariableTarget]::User)
         #}
     } else {
-        Write-PSFMessage -Level Important -Message 'PsWinDose is already initialized/bootstrapped.'
+        Write-PSFMessage -Level Important -Message 'PsWinDose is already initialized/bootstrapped'
     }
 }

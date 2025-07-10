@@ -210,7 +210,7 @@
             Name        = 'Visual Studio Code';
             Id          = 'Microsoft.VisualStudioCode';
             Description = 'VsCode IDE';
-            Default     = $true
+            Default     = $false
         },
         @{
             Name        = 'Visual Studio Code Insiders';

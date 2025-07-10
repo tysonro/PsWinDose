@@ -1,19 +1,18 @@
 ﻿function Start-WindowsSetup {
-<#
-.SYNOPSIS
-Tyson's Win 11 provisioning script
+    <#
+    .SYNOPSIS
+        Tyson's Win 11 provisioning script
 
-.DESCRIPTION
-Customizes a windows 11 device: all the apps and settings I like.
+    .DESCRIPTION
+        Customizes a windows 11 device: all the apps and settings I like.
 
-Note: Must run as administrator to bootstrap
+        Note: Must run as administrator to bootstrap
 
-.EXAMPLE
-PS> .\Start-WindowsSetup.ps1 -RepoName 'repo1' -RepoPath '\\server1\Repo1Path'
-#>
+    .EXAMPLE
+        PS> .\Start-WindowsSetup.ps1
+    #>
     [CmdletBinding()]
-    # exclude shouldprocess
-    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseShouldProcessForStateChangingFunctions', '')]
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseShouldProcessForStateChangingFunctions', '')] # PSScriptAnalyzer: Suppress ShouldProcess
     param (
         [switch]$AddPrivateRepo
     )
@@ -39,11 +38,6 @@ PS> .\Start-WindowsSetup.ps1 -RepoName 'repo1' -RepoPath '\\server1\Repo1Path'
 
     # Install default software
     Install-Software -Default
-
-
-    # Install VSCode Extensions
-    ## I'm using vscode profiles now so maybe i need to figure out how to export/import those over...?
-    #Install-VSCodeExtension
 
     # Set up PowerShell profile
     Install-PSProfile

@@ -25,7 +25,7 @@
             $repoPath = Read-Host -Prompt 'Enter private repo path'
         }
 
-        Write-PSFMesage -Level Important -Message 'Adding private repository...'
+        Write-PSFMessage -Level Important -Message 'Adding private repository...'
         $Repo = @{
             Name = $RepoName
             SourceLocation = $RepoPath

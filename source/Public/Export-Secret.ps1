@@ -55,7 +55,7 @@ function Export-Secret {
         }
         [PSCustomObject]@{
             Name  = $secret.Name
-            Type  = $secret.Type
+            Type  = [string]$secret.Type
             Value = $secretValue
         }
     }

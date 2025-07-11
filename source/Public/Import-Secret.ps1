@@ -1,21 +1,21 @@
-function Restore-Secret {
+function Import-Secret {
 <#
 .SYNOPSIS
-    Restore secrets from a JSON file to a Secret Management vault.
+    Import secrets from a JSON file to a Secret Management vault.
 
 .DESCRIPTION
-    The Restore-Secret function reads secrets from a specified JSON file and restores them to a Secret Management vault.
+    The Import-Secret function reads secrets from a specified JSON file and imports them to a Secret Management vault.
     It supports secrets of type PSCredential, String, and SecureString.
 
 .PARAMETER Path
-    The path to the JSON file containing the secrets to be restored.
+    The path to the JSON file containing the secrets to be imported.
 
 .PARAMETER Vault
-    The name of the Secret Management vault where the secrets will be restored.
+    The name of the Secret Management vault where the secrets will be imported.
 
 .EXAMPLE
-    Restore-Secret -Path 'C:\Backups\SecretsBackup.json' -Vault 'myVault'
-    This example restores secrets from the specified JSON file to the 'myVault' vault.
+    Import-Secret -Path 'C:\Backups\SecretsBackup.json' -Vault 'myVault'
+    This example imports secrets from the specified JSON file to the 'myVault' vault.
 
 .LINK
     Adapted from: https://www.powershell.co.at/powershell-secrets-management-part-4-backup-export-migrate-secrets/

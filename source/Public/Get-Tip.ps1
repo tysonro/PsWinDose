@@ -46,6 +46,9 @@ VSCode:
     - Ctrl+Shift+[ = Fold
     - Ctrl+Shift+] = Unfold
 
+# Zen Mode
+    - Ctrl+K Z = Toggle Zen Mode (distraction free mode)
+
 # Multi-Line and Cursor edits:
     - Ctrl+F2 = Multi line edits where its value is duplicated (highlighted)
     - Alt+Click = Multi cursor edits (specific to where you click)

@@ -36,6 +36,13 @@
     if (-not (Test-Path -Path $Settings.rootPath)) {
         Write-Verbose "Initializing PsWinDose module..."
 
+        Write-Verbose "Installing latest version of PSResourceGet module..."
+        Install-Module -Name Microsoft.PowerShell.PSResourceGet -Force
+
+        Write-Verbose "Setting PSGallery to 'trusted' in PSRepository and PSResourceRepository..."
+        Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
+        Set-PSResourceRepository -Name PSGallery -Trusted
+
         # Ensure PSFramework is installed for logging and consoleGuiTools for advanced TUI's
         Write-Verbose "Checking module dependencies..."
         Test-ModuleDependency -Name 'PSFramework', 'Microsoft.PowerShell.ConsoleGuiTools' -ErrorAction Stop

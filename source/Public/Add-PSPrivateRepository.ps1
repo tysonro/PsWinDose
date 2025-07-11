@@ -4,7 +4,7 @@
         Registers a private repository
 
     .DESCRIPTION
-        Registers a private package(nuget) repository.
+        Registers a private package(nuget) repository to both PSRepository (legacy) and PSResourceRepository.
 
     .EXAMPLE
         Add-PrivateRepository -RepoName 'repo1' -RepoPath '\\server1\Repo1Path'
@@ -19,21 +19,29 @@
         $repoName = Read-Host -Prompt 'Enter private repo name'
     }
 
-    # Add private repository
-    if (!(Get-PSRepository -Name $RepoName -ErrorAction SilentlyContinue)) {
-        if (!$RepoPath) {
-            $repoPath = Read-Host -Prompt 'Enter private repo path'
-        }
+    if (!$RepoPath) {
+        $repoPath = Read-Host -Prompt 'Enter private repo path'
+    }
 
-        Write-PSFMessage -Level Important -Message 'Adding private repository...'
+    # Legacy: PowerShellGet
+    if (!(Get-PSRepository -Name $RepoName -ErrorAction SilentlyContinue)) {
+        Write-PSFMessage -Level Important -Message "Adding private repository [$RepoName] to PowerShellGet (legacy)..."
         $Repo = @{
             Name = $RepoName
             SourceLocation = $RepoPath
             PublishLocation = $RepoPath
             InstallationPolicy = 'Trusted'
         }
-        Write-PSFMessage -Level Important -Message 'Registering $RepoName repository...'
         Register-PSRepository @Repo
+    } else {
+        Write-PSFMessage -Level Important -Message "$RepoName is already registered in PowerShellGet"
     }
-    Write-PSFMessage -Level Important -Message "$RepoName is already registered"
+
+    # PSResourceGet
+    if (!(Get-PSResourceRepository -Name $RepoName -ErrorAction SilentlyContinue)) {
+        Write-PSFMessage -Level Important -Message "Adding private repository [$RepoName] to PSResourceGet..."
+        Register-PSResourceRepository -Name $RepoName -Uri $RepoPath -Trusted
+    } else {
+        Write-PSFMessage -Level Important -Message "$RepoName is already registered in PSResourceGet"
+    }
 }

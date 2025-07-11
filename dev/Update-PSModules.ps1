@@ -4,6 +4,8 @@ I haven't really looked at this at all, but maybe I can get inspired by this...
 It would be good to have a script that can update a list of modules I deem important.
 Maybe have another offshoot that can be used on our BD systems in some way too?
 
+In the process it will CLEAN OUT / REMOVE older versions of modules that are no longer needed!!!!!!!!! <<<<<< THIS!!
+
 https://github.com/12Knocksinna/Office365itpros/blob/master/UpdateOffice365PowerShellModules.PS1
 #>
 # UpdateOffice365PowerShellModules.PS1

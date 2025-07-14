@@ -44,7 +44,13 @@ Set-Alias -Name sudo -Value gsudo
 Set-Alias -Name n+ -Value "C:\Program Files\Notepad++\notepad++.exe"
 
 # Helpful when troubleshooting CI/CD pipelines: Overwrite the last commit; erase what i just did, and force push it back to the branch
-Set-Alias -Name cicommit -Value "git commit -a --amend --no-edit && git push --force-with-lease"
+function global:cicommit {
+    param()
+    git commit -a --amend --no-edit
+    if ($LASTEXITCODE -eq 0) {
+        git push --force-with-lease
+    }
+}
 
 #######################
 # CUSTOMIZE THE SHELL #

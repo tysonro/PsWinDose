@@ -153,6 +153,12 @@
             Default     = $false
         },
         @{
+            Name        = 'Node.js';
+            Id          = 'OpenJS.NodeJS';
+            Description = 'Node.js JavaScript runtime';
+            Default     = $false
+        },
+        @{
             Name        = 'Obsidian';
             Id          = 'Obsidian.Obsidian';
             Description = 'Personal Knowledge Managmenet (PKM)';

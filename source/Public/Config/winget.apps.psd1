@@ -214,7 +214,7 @@
         },
         @{
             Name        = 'Visual Studio Code Insiders';
-            Id          = 'Microsoft.VisualStudioCodeInsiders';
+            Id          = 'Microsoft.VisualStudioCode.Insiders';
             Description = 'VsCode Insiders IDE';
             Default     = $false
         },

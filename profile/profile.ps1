@@ -1,4 +1,4 @@
-# v5.0.0
+# v5.0.1
 
 ###########
 # Modules #
@@ -68,9 +68,9 @@ if ($host.Name -eq 'ConsoleHost' -or $host.Name -eq 'Visual Studio Code Host' ) 
     # not sure if I'll need this but just keeping it here for now
 }#>
 
+Set-PSReadLineOption -EditMode Vi # Windows (default) | Emacs | Vi
 <#
-Set-PSReadLineOption -EditMode Windows
-Set-PSReadLineOption -PredictionViewStyle InLine # ListView | Inline (default) (Note: F2 toggles in real time!)
+Set-PSReadLineOption -PredictionViewStyle Inline # ListView | Inline (default) (Note: F2 toggles in real time!)
 Set-PSReadlineOption -Color @{
     "Command" = [ConsoleColor]::Green
     "Parameter" = [ConsoleColor]::Gray
@@ -157,3 +157,19 @@ function which($name) {
 $quotes = Import-PowerShellDataFile "C:\ProgramData\PsWinDose\inspirationalQuotes.psd1"
 "🍺 " + ($quotes.quotes | Get-Random) | Write-Host -ForegroundColor Cyan
 "`n"
+
+function rdp {
+    param (
+        [Parameter(Mandatory)]
+        [string]$ComputerName,
+        [switch]$WindowsPowerShell
+    )
+    $adminCreds = Get-Secret windowsAdmin
+    if ($WindowsPowerShell) {
+        Write-Host "Starting RDP session (5.1): $ComputerName" -ForegroundColor Green
+        Enter-PSSession -ComputerName $ComputerName -Credential $adminCreds
+    } else {
+        Write-Host "Starting RDP session (7.x): $ComputerName" -ForegroundColor Green
+        Enter-PSSession -ComputerName $ComputerName -Credential $adminCreds -ConfigurationName PowerShell.7
+    }
+}

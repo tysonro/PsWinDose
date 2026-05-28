@@ -153,6 +153,12 @@
             Default     = $false
         },
         @{
+            Name        = 'Neovim';
+            Id          = 'Neovim.Neovim';
+            Description = 'Neovim text editor';
+            Default     = $false
+        },
+        @{
             Name        = 'Node.js';
             Id          = 'OpenJS.NodeJS';
             Description = 'Node.js JavaScript runtime';

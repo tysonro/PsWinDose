@@ -101,6 +101,9 @@
         "The single most effective habit is the willingness to change your own mind."
         "A smooth sea never made a skilled sailor"
         "To know what you are going to draw, you have to begin drawing. - Picasso"
+        "Time is our most irreplaceable asset - we cannot buy more of it. We can only strive to waste as little as possible. - The Daily Stoic"
+        "When faced with conflict, respond with curiosity! - Jeffery Snover"
+        "Everything we hear is an opinion, not a fact. Everything we see is a perspective, not the truth. - Marcus Aurelius"
 
         # IT: Coding/DevOps/etc.
         "Automation applied to an efficient operation will magnify the efficiency. Automation applied to an inefficient operation will magnify the inefficiency. - Bill Gates"

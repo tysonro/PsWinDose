@@ -135,6 +135,12 @@
             Default     = $false
         },
         @{
+            Name        = 'Logitech MX';
+            Id          = 'Logitech.OptionsPlus';
+            Description = 'Keyboard/mouse manager';
+            Default     = $false
+        },
+        @{
             Name        = 'mRemoteNG';
             Id          = 'mRemoteNG.mRemoteNG';
             Description = 'Remote connections manager';
